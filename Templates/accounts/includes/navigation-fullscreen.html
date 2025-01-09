@@ -1,3 +1,8 @@
+{% extends 'accounts/base-fullscreen.html' %}
+
+{% load i18n static  %}
+{% block content %}
+
 <div class="container position-sticky z-index-sticky top-0">
   <div class="row">
     <div class="col-12">
@@ -15,7 +20,7 @@
             </span>
           </button>
           <div class="collapse navbar-collapse" id="navigation">
-            <ul class="navbar-nav mx-auto">              
+            <ul class="navbar-nav mx-auto">
             </ul>
             <ul class="navbar-nav d-lg-block d-none">
               <li class="nav-item">
@@ -29,3 +34,6 @@
     </div>
   </div>
 </div>
+
+{% endblock content %}
+

@@ -14,6 +14,18 @@ class RegistrationForm(UserCreationForm):
         label=_("Password Confirmation"),
         widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password Confirmation'}),
     )
+    extra_kwargs = {"password1": {'write_only': True}}
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.fields:
+            self.fields[field].widget.attrs.update({
+                'class': (
+                    'bty'),
+                'style': (
+                    'width:98%;')
+            })
 
     class Meta:
         model = User

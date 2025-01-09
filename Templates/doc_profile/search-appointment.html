@@ -2,12 +2,6 @@
 {% block content %}
 
 
-<div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
-    <div class="container py-5">
-        <h1 class="display-3 text-white mb-3 animated slideInDown">Search Appointment </h1>
-    </div>
-</div>
-<!-- Page Header End -->
 
 <!-- Appointment Start -->
 <div class="container-xxl py-10">
@@ -16,33 +10,8 @@
     <div class="col-sm-20">
     <div class="card card- table">
     <div class="card-body">
-        {% if messages %}
-        {% for message in messages %}
-         {% if message.tags == 'error' %}
-       <div class="alert alert-warning alert-dismissible fade show" role="alert">
-      {{message}}
-     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-     <span aria-hidden="true">&times;</span>
-         </button>
-          </div>
-       {% endif %}
-        {% endfor %}
-       {% endif %}
-           {% if messages %}
-        {% for message in messages %}
-         {% if message.tags == 'success' %}
-       <div class="alert alert-warning alert-dismissible fade show" role="alert">
-      {{message}}
-     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-     <span aria-hidden="true">&times;</span>
-         </button>
-          </div>
-       {% endif %}
-        {% endfor %}
-       {% endif %}
   <h4 class="sub-title">Search Appointment </h4>
             <form  method="GET">
-                
                 {% csrf_token %}
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Search(By Fullname/Appointment Number)</label>
@@ -56,33 +25,18 @@
                         </form>
                     
                         </div>
-    <div class="card card-table">
 
+        <section class="newsletter" aria-label="newsletter">
+        <div class="container">
+
+          <div class="wrapper">
+            <h2 class="h2 section-title">Subscribe to Dental Tips</h2>
+
+            <p class="section-text"> Get latest updates and information.We gift you nice tooth paste</p>
+          </div>
+
+               <div class="card card-table">
     <div class="card-body">
-        {% if messages %}
-        {% for message in messages %}
-         {% if message.tags == 'error' %}
-       <div class="alert alert-warning alert-dismissible fade show" role="alert">
-      {{message}}
-     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-     <span aria-hidden="true">&times;</span>
-         </button>
-          </div>
-       {% endif %}
-        {% endfor %}
-       {% endif %}
-           {% if messages %}
-        {% for message in messages %}
-         {% if message.tags == 'success' %}
-       <div class="alert alert-warning alert-dismissible fade show" role="alert">
-      {{message}}
-     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-     <span aria-hidden="true">&times;</span>
-         </button>
-          </div>
-       {% endif %}
-        {% endfor %}
-       {% endif %}
     <div class="table-responsive">
     <table class="table table-hover table-center mb-0 datatable">
     <thead>
@@ -115,26 +69,36 @@
     <a href="{% url 'patientappointmentdetails' i.id %}">
     <i class="btn btn-primary btn-block">View</i>
     </a>
-  
+
     </div>
     </td>
     </tr> {% endfor %}
-   
+
     </tbody>
     </table>
     {% else %}
     {% if query %}
         <p style="font-size: 20px;color: blue;text-align: center;">No records found for: "{{ query }}"</p>
-    
+
     {% endif %}
 
     {% endif %}
-    
+
 
     </div>
     </div>
     </div>
-    </div>
+
+          <form action="" class="newsletter-form">
+            <input type="email" name="email_address" placeholder="Enter your email :" aria-label="Enter your email"
+              required class="email-field">
+
+            <button type="submit" class="btn btn-secondary">Subscribe</button>
+          </form>
+
+        </div>
+      </section>
+   </div>
     </div>
     </div>
     </div>

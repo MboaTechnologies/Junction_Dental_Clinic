@@ -1,12 +1,13 @@
 from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
-
+from Appointment.views import  user_profile_history_appointment
 
 urlpatterns = [
     # Authentication
-    path('accounts/profile/update', views.profile_Update, name='profile_update'),
-    path('accounts/profile/', views.user_profile_view, name='user_profile_view'),
+    path('accounts/profile/update', views. profile_Update, name='user_profile_update'),
+    path('accounts/profile/', views.user_profile, name='user_profile'),
+    path('accounts/profile/view', views.user_profile_view, name='user_profile_view'),
     path('accounts/login/', views.UserLoginView.as_view(), name='login'),
     path('accounts/logout/', views.user_logout_view, name='logout'),
     path('accounts/register/', views.register, name='register'),

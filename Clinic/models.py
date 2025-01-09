@@ -5,7 +5,7 @@ import random
 
 
 def generate_service_id():
-    alphanumeric = string.ascii_letters + string.digits
+    alphanumeric = string.ascii_uppercase + string.digits
     return ''.join(random.choices(alphanumeric, k=6))
 
 

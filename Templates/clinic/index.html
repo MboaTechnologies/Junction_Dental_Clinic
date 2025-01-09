@@ -13,7 +13,7 @@
   <!-- 
     - favicon
   -->
-  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" sizes="76x76"  href="{% static 'icon/Junction_Dental.png '%}" type="image/svg+xml">
 
   <!-- 
     - custom css link
@@ -23,15 +23,14 @@
   <!-- 
     - google font link
   -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Roboto:wght@400;500;600&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap"
     rel="stylesheet">
 </head>
 
 {% block body %}
-{% include 'clinic/navbar.html' %}
 <body id="top">
                  {% include 'clinic/messages.html' %}
         {% endblock %}
@@ -117,9 +116,9 @@
         </nav>
         <a  href="{% url 'appointment' %}" class="btn">Book Now</a>
         <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
-          <ion-icon name="menu-sharp" aria-hidden="true" class="menu-icon"></ion-icon>
-          <ion-icon name="close-sharp" aria-hidden="true" class="close-icon"></ion-icon>
-        </button>
+        <ion-icon name="menu-outline" aria-hidden="true" class="menu-icon"></ion-icon>
+        <ion-icon name="close-outline" aria-hidden="true" class="close-icon"></ion-icon>
+      </button>
       </div>
     </div>
   </header>
@@ -139,7 +138,7 @@
           </div>
 
           <figure class="hero-banner">
-            <img src="{% static 'images/doctor-1.png'%}" width="587" height="839" alt="hero banner" class="w-100">
+            <img src="{% static 'images/hero-banner.png'%}" width="587" height="950" alt="hero banner" class="w-100">
           </figure>
 
         </div>
@@ -150,9 +149,9 @@
       <section class="section about" id="about" aria-label="about">
         <div class="container">
 
-          <figure class="about-banner">
+          <figure class="about-banner" style=" background-color:rgba(0,0,0,0.1);border-radius:40px;backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:20px 20px 80px 20px rgba(0,0,0,0.1);">
 
-            <img src="{% static 'images/hero-banner.png'%}" width="470" height="538" loading="lazy" alt="about banner"
+            <img src="{% static 'images/doctor-1.png'%}" width="470" height="538" loading="lazy" alt="about banner"
               class="w-100">
           </figure>
 
@@ -184,7 +183,7 @@
       <section class="section doctor" aria-label="doctor">
         <div class="container">
 
-          <p class="section-subtitle text-center">Our Doctor</p>
+          <p class="section-subtitle text-center">Your Doc</p>
 
           <h2 class="h2 section-title text-center">Best Expert Dentist</h2>
 
@@ -195,12 +194,12 @@
 
                 <div class="card-banner img-holder" style="--width: 460; --height: 500;">
 
-                  <img src="{% static 'images/doctor-1.png'%}" width="460" height="500" loading="lazy" alt="Howard Holmes"
+                  <img src="{% static 'images/doctor-3.png'%}" width="460" height="500" loading="lazy" alt="Howard Holmes"
                     class="img-cover">
                 </div>
 
                 <h3 class="h3">
-                  <a href="#" class="card-title">Howard Holmes</a>
+                  <a href="#" class="card-title">Dr Nicodemus</a>
                 </h3>
 
                 <p class="card-subtitle">Dentist</p>
@@ -274,7 +273,7 @@
               <div class="doctor-card">
 
                 <div class="card-banner img-holder" style="--width: 460; --height: 500;">
-                  <img src="{% static 'images/doctor-3.png'%}" width="460" height="500" loading="lazy" alt="Vincent Cooper"
+                  <img src="{% static 'images/doctor-1.png'%}" width="460" height="500" loading="lazy" alt="Vincent Cooper"
                     class="img-cover">
                 </div>
 
@@ -357,15 +356,15 @@
         <div class="container">
 
           <figure class="cta-banner">
-            <img src="{% static 'images/cta-banner.png'%}" width="1056" height="1076" loading="lazy" alt="cta banner"
+            <img src="{% static 'images/cta-banner.png'%}" width="1076" height="1076" loading="lazy" alt="cta banner"
               class="w-100">
           </figure>
 
           <div class="cta-content">
 
-            <p class="section-subtitle">Book Dentail Appointment</p>
+            <p class="section-subtitle">Book Dental Appointment</p>
 
-            <h2 class="h2 section-title">We Are open And Welcoming Patients</h2>
+            <h2 class="h2 section-title">We Are open And Welcoming You .<br>Visit Us Today</h2>
 
             <a href="{% url 'appointment' %}" class="btn">Book appointment</a>
 

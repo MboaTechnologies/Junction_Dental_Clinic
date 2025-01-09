@@ -17,30 +17,8 @@
             <div class="card card-table">
         
             <div class="card-body">
-                {% if messages %}
-                {% for message in messages %}
-                 {% if message.tags == 'error' %}
-               <div class="alert alert-warning alert-dismissible fade show" role="alert">
-              {{message}}
-             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-             <span aria-hidden="true">&times;</span>
-                 </button>
-                  </div>
-               {% endif %}
-                {% endfor %}
-               {% endif %}
-                   {% if messages %}
-                {% for message in messages %}
-                 {% if message.tags == 'success' %}
-               <div class="alert alert-warning alert-dismissible fade show" role="alert">
-              {{message}}
-             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-             <span aria-hidden="true">&times;</span>
-                 </button>
-                  </div>
-               {% endif %}
-                {% endfor %}
-               {% endif %}
+                  {%  include 'clinic/messages.html' %}
+
             <div class="table-responsive">
                 {% for i in patientdetails %}
                 <h6>Below is the details of Appointment Number: {{i.appointment_number}}  <strong style="padding-left: 600px;">Date: {{i.date_of_appointment}}</strong></h6>

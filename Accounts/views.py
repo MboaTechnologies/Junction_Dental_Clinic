@@ -57,45 +57,65 @@ def user_logout_view(request):
     return redirect('/accounts/login/')
 
 
+
 def user_profile_view(request):
     user_view = request.user
     page = Page.objects.all()
     Services = Specialization.objects.all()
-    context = {'services': Services,  'page': page}
+    context = {'services': Services, 'page': page}
     Appointment_History = Appointment.objects.filter(email__icontains=user_view) | Appointment.objects.filter(
         mobile_number__icontains=user_view)
     if Appointment_History:
         # Filter records where fullname or Appointment Number contains the query
         Appointee = Appointment_History
         messages.info(request, 'Your Appointment History Exists')
-        context = {'Appointee': Appointee, 'user_view': user_view, 'page': page, 'services': Services,}
-        return render(request, 'user_profile/user_profile.html', context)
-    return render(request, 'user_profile/user_profile.html',context)
+        context = {'Appointee': Appointee, 'user_view': user_view, 'page': page, 'services': Services, }
+        return render(request, 'user_profile/profile.html', context)
+    return render(request, 'user_profile/user_profile.html', context)
+
+
+def user_profile(request):
+    user_view = request.user
+    page = Page.objects.all()
+    Services = Specialization.objects.all()
+    context = {'services': Services, 'page': page}
+    Appointment_History = Appointment.objects.filter(email__icontains=user_view) | Appointment.objects.filter(
+        mobile_number__icontains=user_view)
+    if Appointment_History:
+        # Filter records where fullname or Appointment Number contains the query
+        Appointee = Appointment_History
+        messages.info(request, 'Your Appointment History Exists')
+        context = {'Appointee': Appointee, 'user_view': user_view, 'page': page, 'services': Services, }
+        return render(request, 'user_profile/profile.html', context)
+    return render(request, 'user_profile/profile.html', context)
 
 
 @login_required(login_url='/')
 def profile_Update(request):
-    if request.method == "POST":
-        profile_pic = request.FILES.get('profile_pic')
-        first_name = request.POST.get('first_name')
-        last_name = request.POST.get('last_name')
-        email = request.POST.get('email')
-        username = request.POST.get('username')
-        print(profile_pic)
+    member = User.objects.get(email=request.user)
 
-        try:
-            customuser = User.objects.get(id=request.user.id)
-            customuser.first_name = first_name
-            customuser.email = email
-            customuser.username = username
-            customuser.last_name = last_name
+    if request.method == 'POST':
+        if request.FILES.get('image') is None:
+            profile_photo = member.profile_photo
+            first_name = request.POST.get('first_name')
+            last_name = request.POST.get('last_name')
+            email = request.POST.get('email')
+            phone_number = request.POST.get('phone_number')
+            username = request.POST.get('username')
+            try:
+                if request.FILES.get('image') is not None:
+                    profile_photo = request.FILES.get('profile_picture')
 
-            if profile_pic is None:
-                customuser.profile_pic = profile_pic
-            customuser.save()
-            messages.success(request, "Your profile has been updated successfully")
-            return redirect('profile')
+                member.profile_photo = profile_photo
+                member.phone_number = phone_number
+                member.first_name = first_name
+                member.username = username
+                member.email = email
+                member.last_name = last_name
+                member.save()
 
-        except:
-            messages.error(request, "Your profile updation has been failed")
-    return render(request, 'user_profile/profile.html')
+            except:
+                messages.error(request, "Your profile updation has been failed")
+        return render(request, 'user_profile/user_profile_update.html')
+    return render(request, 'user_profile/user_profile_update.html')
+

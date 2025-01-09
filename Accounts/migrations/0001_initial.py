@@ -76,7 +76,7 @@ class Migration(migrations.Migration):
                 ('has_next_of_kin', models.BooleanField(default=False)),
                 ('is_Doctor', models.BooleanField(default=False)),
                 ('specialization', models.CharField(blank=True, choices=[('', '----------'), ('Dentistry', 'Dentistry'), ('Pharmacy', 'Pharmacy'), ('Consultation', 'Consultation'), ('Laboratory', 'Laboratory Tests'), ('Other issue', 'Other issue')], max_length=19)),
-                ('profile_photo', models.ImageField(blank=True, null=True, upload_to='Profile-photos/')),
+                ('profile_photo', models.ImageField(blank=True, null=True, upload_to='profile_photos/')),
                 ('patient_type', models.CharField(choices=[('', '-----'), ('Member_Patient', 'Member_Patient'), ('NextOfKin_Patient', 'NextOfKin_Patient'), ('Staff', 'Staff'), ('New_Patient', 'New_Patient')], max_length=50, null=True)),
                 ('patient_id', models.CharField(blank=True, max_length=15, null=True, unique=True)),
                 ('gender', models.CharField(choices=[('Male', 'Male'), ('Female', 'Female')], default='', max_length=10)),

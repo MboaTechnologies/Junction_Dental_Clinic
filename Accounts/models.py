@@ -3,13 +3,20 @@ from .managers import UserManager
 # from django.utils.translation import gettext_lazy as _
 # from phonenumber_field.modelfields import PhoneNumberField
 from django.utils import timezone
-import random
 from django.contrib.auth.models import AbstractUser
 from django.db.models import Q
 from .constants import PATIENT_TYPE_CHOICES, SPECIALIZATION_CHOICES, GENDER_CHOICES
+import string
+import random
 
+
+def generate_service_id():
+    alphanumeric = string.ascii_uppercase + string.digits
+    return ''.join(random.choices(alphanumeric, k=6))
 
 # Create a Custom User Model
+
+
 class User(AbstractUser):
     username = models.CharField(unique=True, null=False, max_length=50, blank=False)
     email = models.EmailField(unique=True, null=False, blank=False)
@@ -18,9 +25,10 @@ class User(AbstractUser):
     next_of_kin = models.ForeignKey('NextOfKin', on_delete=models.CASCADE, blank=True, null=True)
     is_Doctor = models.BooleanField(default=False)
     specialization = models.CharField(max_length=19, blank=True, choices=SPECIALIZATION_CHOICES,)
-    profile_photo = models.ImageField(upload_to='Profile-photos/', null=True, blank=True)
+    profile_photo = models.ImageField(upload_to='profile_photos/', null=False, default='icon/bondijunction_dentalclinic_logo-300x258.jpg', blank=False)
     patient_type = models.CharField(max_length=50, null=True, choices=PATIENT_TYPE_CHOICES)
     patient_id = models.CharField(max_length=15, unique=True, blank=True, null=True)
+    member_code = models.CharField(default=generate_service_id, max_length=6, unique=True)
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES, default="")
     # mobile_number = PhoneNumberField(max_length=13, blank=True, null=True, unique=True)
     mobile_number = models.CharField(max_length=13, blank=True, null=True, unique=True)

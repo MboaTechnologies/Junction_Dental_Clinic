@@ -1,6 +1,6 @@
 from .models import Appointment
 import random
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from Clinic.models import DoctorReg, Page, Specialization
 from django.contrib import messages
@@ -57,7 +57,7 @@ def create_appointment(request):
         )
 
         if User.objects.filter(email=email).exists():
-            messages.warning(request,'Email already exist')
+            messages.warning(request, 'Email already exist')
             return redirect('/accounts/login/')
         if User.objects.filter(username=full_name).exists():
             messages.warning(request, 'Account exist on Membership Plan')
@@ -67,7 +67,6 @@ def create_appointment(request):
         messages.success(request, "Your Appointment Request Has Been Sent. We Will Contact You Soon")
         appointment_details.save()
         return redirect('/accounts/login/')
-
 
     context = {'doctorview': doctorview, 'worry': worry,
                'page': page}
@@ -89,11 +88,27 @@ def User_Search_Appointments(request):
         else:
             print("No Record Found")
             context = {'page': page}
-            return render(request, 'appointment/search-appointment.html', context)
+            return render(request, 'appointment/userbase.html ', context)
 
     # If the request method is not GET
     context = {'page': page}
-    return render(request, 'appointment/search-appointment.html', context)
+    return render(request, 'appointment/userbase.html', context)
+
+
+def user_profile_history_appointment(request):
+    user_view = request.user
+    page = Page.objects.all()
+    Services = Specialization.objects.all()
+    context = {'services': Services, 'page': page}
+    Appointment_History = Appointment.objects.filter(email__icontains=user_view) | Appointment.objects.filter(
+        mobile_number__icontains=user_view)
+    if Appointment_History:
+        # Filter records where fullname or Appointment Number contains the query
+        Appointee = Appointment_History
+        messages.info(request, 'Your Appointment History Exists')
+        context = {'Appointee': Appointee, 'user_view': user_view, 'page': page, 'services': Services, }
+        return render(request, 'user_profile/profile.html', context)
+    return render(request, 'user_profile/user_profile.html', context)
 
 
 def View_Appointment_Details(request, id):
@@ -105,6 +120,7 @@ def View_Appointment_Details(request, id):
                }
 
     return render(request, 'appointment/user_appointment-details.html', context)
+
 
 @login_required(login_url='/')
 def View_Appointment(request):
@@ -130,11 +146,6 @@ def View_Appointment(request):
         context = {'error_message': str(e)}
 
     return render(request, 'appointment/view_appointment.html', context)
-
-
-
-
-
 
 
 @login_required(login_url='/')
@@ -219,7 +230,14 @@ def DoctorAppointmentList(request, id):
     context = {'patientdetails': patientdetails
 
                }
+    return render(request, 'doc_profile/doctor_appointment_list_details.html', context)
 
+
+def AppointmentHistoryList(request, id):
+    patientdetails = Appointment.objects.filter(id=id)
+    context = {'patientdetails': patientdetails
+
+               }
     return render(request, 'doc_profile/doctor_appointment_list_details.html', context)
 
 
@@ -238,8 +256,6 @@ def Patient_Appointment_Prescription(request):
         context = {'patientaptdet': patientaptdet}
         return render(request, 'doc_profile/patient_list_app_appointment.html', context)
     return redirect('view_appointment')
-
-
 
 
 def Patient_Appointment_Completed(request):
@@ -289,4 +305,3 @@ def Between_Date_Report(request):
 
     return render(request, 'doc_profile/between-dates-report.html',
                   {'patient': patient, 'start_date': start_date, 'end_date': end_date})
-
