@@ -1,5 +1,4 @@
 from django.db import models
-from Accounts.models import User
 import string
 import random
 
@@ -22,20 +21,6 @@ class Specialization(models.Model):
 
     def __str__(self):
         return self.sname
-
-
-class DoctorReg(models.Model):
-    admin = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
-    mobilenumber = models.CharField(max_length=11)
-    specialization_id = models.ForeignKey(Specialization, on_delete=models.CASCADE)
-    regdate_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        if self.admin:
-            return f"{self.admin.first_name} {self.admin.last_name} - {self.mobilenumber}"
-        else:
-            return f"User not associated - {self.mobilenumber}"
 
 
 class Page(models.Model):

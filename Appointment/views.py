@@ -2,10 +2,11 @@ from .models import Appointment
 import random
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from Clinic.models import DoctorReg, Page, Specialization
+from Clinic.models import Page, Specialization
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from datetime import datetime
+from Dashboard.models import DoctorReg
 from Accounts.models import User
 
 
@@ -56,43 +57,44 @@ def create_appointment(request):
             additional_msg=additional_msg
         )
 
-        if User.objects.filter(email=email).exists():
-            messages.warning(request, 'Email already exist')
-            return redirect('/accounts/login/')
-        if User.objects.filter(username=full_name).exists():
-            messages.warning(request, 'Account exist on Membership Plan')
-            return redirect('/accounts/login/')
-
+        if User.objects.filter(email=email).exists() | User.objects.filter(username=full_name).exists():
+            messages.info(request, 'Account exist on Membership Plan . Kindly Login to your Account')
         # Display a success message
         messages.success(request, "Your Appointment Request Has Been Sent. We Will Contact You Soon")
         appointment_details.save()
-        return redirect('/accounts/login/')
+        context = {'doctorview': doctorview, 'appointment_details':appointment_details,
+                   'page': page}
+        return render(request, 'accounts/includes/appointment_success.html', context)
 
     context = {'doctorview': doctorview, 'worry': worry,
                'page': page}
-    return render(request, 'appointment/appointment.html', context)
+    return render(request, 'appointment/includes/appointment.html', context)
 
 
 def User_Search_Appointments(request):
     page = Page.objects.all()
+    MemberUser = request.user
 
     if request.method == "GET":
         query = request.GET.get('query', '')
         if query:
             # Filter records where fullname or Appointment Number contains the query
-            patient = Appointment.objects.filter(fullname__icontains=query) | Appointment.objects.filter(
-                appointment_number__icontains=query)
-            messages.info(request, "Search against " + query)
-            context = {'patient': patient, 'query': query, 'page': page}
-            return render(request, 'appointment/search-appointment.html', context)
-        else:
-            print("No Record Found")
-            context = {'page': page}
-            return render(request, 'appointment/userbase.html ', context)
+            patient = Appointment.objects.filter(fullname__icontains=query) | Appointment.objects.filter(appointment_number__icontains=query)
+            if patient:
+                Appointment_History = Appointment.objects.filter(
+                    email__icontains=MemberUser) | Appointment.objects.filter(
+                    mobile_number__icontains=MemberUser)
+                messages.info(request, "Search against " + query)
+                context = {'patient': Appointment_History, 'query': query, 'page': page}
+                return render(request, 'appointment/search-appointment.html', context)
+            else:
+                print("No Record Found")
+                context = {'page': page}
+                return render(request, 'appointment/userbase.html ', context)
 
-    # If the request method is not GET
-    context = {'page': page}
-    return render(request, 'appointment/userbase.html', context)
+        # If the request method is not GET
+        context = {'page': page}
+        return render(request, 'appointment/userbase.html', context)
 
 
 def user_profile_history_appointment(request):
@@ -107,7 +109,7 @@ def user_profile_history_appointment(request):
         Appointee = Appointment_History
         messages.info(request, 'Your Appointment History Exists')
         context = {'Appointee': Appointee, 'user_view': user_view, 'page': page, 'services': Services, }
-        return render(request, 'user_profile/profile.html', context)
+        return render(request, 'user_profile/includes/profile.html', context)
     return render(request, 'user_profile/user_profile.html', context)
 
 
@@ -119,7 +121,7 @@ def View_Appointment_Details(request, id):
 
                }
 
-    return render(request, 'appointment/user_appointment-details.html', context)
+    return render(request, 'appointment/includes/user_appointment-details.html', context)
 
 
 @login_required(login_url='/')
@@ -145,92 +147,7 @@ def View_Appointment(request):
         # Handle exceptions, such as database errors, gracefully
         context = {'error_message': str(e)}
 
-    return render(request, 'appointment/view_appointment.html', context)
-
-
-@login_required(login_url='/')
-def DOCTORHOME(request):
-    doctor_admin = request.user
-    doctor_reg = DoctorReg.objects.get(admin=doctor_admin)
-    allaptcount = Appointment.objects.filter(doctor_id=doctor_reg).count
-    newaptcount = Appointment.objects.filter(status='0', doctor_id=doctor_reg).count
-    appaptcount = Appointment.objects.filter(status='Approved', doctor_id=doctor_reg).count
-    canaptcount = Appointment.objects.filter(status='Cancelled', doctor_id=doctor_reg).count
-    comaptcount = Appointment.objects.filter(status='Completed', doctor_id=doctor_reg).count
-    context = {
-        'newaptcount': newaptcount,
-        'allaptcount': allaptcount,
-        'appaptcount': appaptcount,
-        'canaptcount': canaptcount,
-        'comaptcount': comaptcount
-
-    }
-    return render(request, 'doc/dochome.html', context)
-
-
-def Patient_Appointment_Details(request, id):
-    patientdetails = Appointment.objects.filter(id=id)
-    context = {'patientdetails': patientdetails
-
-               }
-
-    return render(request, 'doc_profile/patient_appointment_details.html', context)
-
-
-def Patient_Appointment_Details_Remark(request):
-    if request.method == 'POST':
-        patient_id = request.POST.get('pat_id')
-        remark = request.POST['remark']
-        status = request.POST['status']
-        patientaptdet = Appointment.objects.get(id=patient_id)
-        patientaptdet.remark = remark
-        patientaptdet.status = status
-        patientaptdet.save()
-        messages.success(request, "Status Update successfully")
-        context = {'patientaptdet': patientaptdet}
-        return render(request, 'doc_profile/view_appointment.html', context)
-
-    return redirect('view_appointment')
-
-
-def Patient_Approved_Appointment(request):
-    doctor_admin = request.user
-    doctor_reg = DoctorReg.objects.get(admin=doctor_admin)
-    patientdetails1 = Appointment.objects.filter(status='Approved', doctor_id=doctor_reg)
-    context = {'patientdetails1': patientdetails1}
-    return render(request, 'doc/patient_app_appointment.html', context)
-
-
-def Patient_Cancelled_Appointment(request):
-    doctor_admin = request.user
-    doctor_reg = DoctorReg.objects.get(admin=doctor_admin)
-    patientdetails1 = Appointment.objects.filter(status='Cancelled', doctor_id=doctor_reg)
-    context = {'patientdetails1': patientdetails1}
-    return render(request, 'doc_profile/patient_app_appointment.html', context)
-
-
-def Patient_New_Appointment(request):
-    doctor_admin = request.user
-    doctor_reg = DoctorReg.objects.get(admin=doctor_admin)
-    patientdetails1 = Appointment.objects.filter(status='0', doctor_id=doctor_reg)
-    context = {'patientdetails1': patientdetails1}
-    return render(request, 'doc_profile/patient_app_appointment.html', context)
-
-
-def Patient_List_Approved_Appointment(request):
-    doctor_admin = request.user
-    doctor_reg = DoctorReg.objects.get(admin=doctor_admin)
-    patientdetails1 = Appointment.objects.filter(status='Approved', doctor_id=doctor_reg)
-    context = {'patientdetails1': patientdetails1}
-    return render(request, 'doc_profile/patient_list_app_appointment.html', context)
-
-
-def DoctorAppointmentList(request, id):
-    patientdetails = Appointment.objects.filter(id=id)
-    context = {'patientdetails': patientdetails
-
-               }
-    return render(request, 'doc_profile/doctor_appointment_list_details.html', context)
+    return render(request, 'appointment/includes/view_appointment.html', context)
 
 
 def AppointmentHistoryList(request, id):
@@ -238,70 +155,6 @@ def AppointmentHistoryList(request, id):
     context = {'patientdetails': patientdetails
 
                }
-    return render(request, 'doc_profile/doctor_appointment_list_details.html', context)
+    return render(request, 'dashboard/includes/doctor_appointment_list_details.html', context)
 
 
-def Patient_Appointment_Prescription(request):
-    if request.method == 'POST':
-        patient_id = request.POST.get('pat_id')
-        prescription = request.POST['prescription']
-        recommendedtest = request.POST['recommendedtest']
-        status = request.POST['status']
-        patientaptdet = Appointment.objects.get(id=patient_id)
-        patientaptdet.prescription = prescription
-        patientaptdet.recommendedtest = recommendedtest
-        patientaptdet.status = status
-        patientaptdet.save()
-        messages.success(request, "Status Update successfully")
-        context = {'patientaptdet': patientaptdet}
-        return render(request, 'doc_profile/patient_list_app_appointment.html', context)
-    return redirect('view_appointment')
-
-
-def Patient_Appointment_Completed(request):
-    doctor_admin = request.user
-    doctor_reg = DoctorReg.objects.get(admin=doctor_admin)
-    patientdetails1 = Appointment.objects.filter(status='Completed', doctor_id=doctor_reg)
-    context = {'patientdetails1': patientdetails1}
-    return render(request, 'doc_profile/patient_list_app_appointment.html', context)
-
-
-def Search_Appointments(request):
-    doctor_admin = request.user
-    doctor_reg = DoctorReg.objects.get(admin=doctor_admin)
-    if request.method == "GET":
-        query = request.GET.get('query', '')
-        if query:
-            # Filter records where fullname or Appointment Number contains the query
-            patient = Appointment.objects.filter(fullname__icontains=query) | Appointment.objects.filter(
-                appointmentnumber__icontains=query) & Appointment.objects.filter(doctor_id=doctor_reg)
-            messages.success(request, "Search against " + query)
-            return render(request, 'doc_profile/search-appointment.html', {'patient': patient, 'query': query})
-        else:
-            print("No Record Found")
-            return render(request, 'doc_profile/search-appointment.html', {})
-
-
-def Between_Date_Report(request):
-    start_date = request.GET.get('start_date')
-    end_date = request.GET.get('end_date')
-
-    patient = []
-    doctor_admin = request.user
-    doctor_reg = DoctorReg.objects.get(admin=doctor_admin)
-
-    if start_date and end_date:
-        # Validate the date inputs
-        try:
-            start_date = datetime.strptime(start_date, '%Y-%m-%d').date()
-            end_date = datetime.strptime(end_date, '%Y-%m-%d').date()
-        except ValueError:
-            return render(request, 'doc_profile/between-dates-report.html',
-                          {'visitor': patient, 'error_message': 'Invalid date format'})
-
-        # Filter Appointment between the given date range
-        patient = Appointment.objects.filter(created_at__range=(start_date, end_date)) & Appointment.objects.filter(
-            doctor_id=doctor_reg)
-
-    return render(request, 'doc_profile/between-dates-report.html',
-                  {'patient': patient, 'start_date': start_date, 'end_date': end_date})

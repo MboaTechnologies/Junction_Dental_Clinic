@@ -38,17 +38,17 @@ class UserLoginView(LoginView):
 
 
 class UserPasswordResetView(PasswordResetView):
-    template_name = 'accounts/password_reset.html'
+    template_name = 'accounts/includes/password_reset.html'
     form_class = UserPasswordResetForm
 
 
 class UserPasswordResetConfirmView(PasswordResetConfirmView):
-    template_name = 'accounts/password_reset_confirm.html'
+    template_name = 'accounts/includes/password_reset_confirm.html'
     form_class = UserSetPasswordForm
 
 
 class UserPasswordChangeView(PasswordChangeView):
-    template_name = 'accounts/password_change.html'
+    template_name = 'accounts/includes/password_change.html'
     form_class = UserPasswordChangeForm
 
 
@@ -70,8 +70,8 @@ def user_profile_view(request):
         Appointee = Appointment_History
         messages.info(request, 'Your Appointment History Exists')
         context = {'Appointee': Appointee, 'user_view': user_view, 'page': page, 'services': Services, }
-        return render(request, 'user_profile/profile.html', context)
-    return render(request, 'user_profile/user_profile.html', context)
+        return render(request, 'user_profile/includes/profile.html', context)
+    return render(request, 'user_profile/includes/user_profile.html', context)
 
 
 def user_profile(request):
@@ -86,8 +86,8 @@ def user_profile(request):
         Appointee = Appointment_History
         messages.info(request, 'Your Appointment History Exists')
         context = {'Appointee': Appointee, 'user_view': user_view, 'page': page, 'services': Services, }
-        return render(request, 'user_profile/profile.html', context)
-    return render(request, 'user_profile/profile.html', context)
+        return render(request, 'user_profile/includes/user_profile.html', context)
+    return render(request, 'user_profile/includes/profile.html', context)
 
 
 @login_required(login_url='/')
@@ -116,6 +116,6 @@ def profile_Update(request):
 
             except:
                 messages.error(request, "Your profile updation has been failed")
-        return render(request, 'user_profile/user_profile_update.html')
-    return render(request, 'user_profile/user_profile_update.html')
+        return render(request, 'user_profile/includes/user_profile_update.html')
+    return render(request, 'user_profile/includes/user_profile_update.html')
 

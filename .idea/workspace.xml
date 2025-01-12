@@ -5,52 +5,136 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d50babec-1dd6-46aa-a159-a3af1b058397" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Templates/user_profile/user_profile_update.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/icon/bondijunction_dentalclinic_logo-300x258.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/admin.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/icon/Junction_Dental.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Accounts/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Accounts/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Accounts/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Accounts/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dashboard/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Templates/accounts/includes/navigation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Templates/accounts/includes/sidebar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Templates/clinic/includes/page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templatetags/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templatetags/admin_argon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Accounts/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Accounts/migrations/0002_user_member_code.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Accounts/migrations/0003_alter_user_profile_photo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Accounts/migrations/0004_alter_user_profile_photo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Accounts/migrations/0005_alter_user_profile_photo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Accounts/migrations/0006_alter_user_member_code.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Accounts/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Accounts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Appointment/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Appointment/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Appointment/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Appointment/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Appointment/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Appointment/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Appointment/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clinic/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Clinic/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clinic/doc_views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clinic/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clinic/migrations/0002_specialization_ratings.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Clinic/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Clinic/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clinic/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Clinic/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clinic/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Clinic/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Junction_Dental/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Junction_Dental/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Junction_Dental/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Junction_Dental/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Templates/accounts/base-fullscreen.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/accounts/base-fullscreen.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Templates/accounts/includes/navigation-fullscreen.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/accounts/includes/navigation-fullscreen.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/accounts/password_change.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/accounts/password_change.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/accounts/password_change_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/accounts/password_change_done.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/accounts/password_reset.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/accounts/password_reset.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/accounts/password_reset_complete.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/accounts/password_reset_complete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/accounts/password_reset_confirm.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/accounts/password_reset_confirm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/accounts/password_reset_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/accounts/password_reset_done.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/accounts/includes/scripts.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/accounts/includes/scripts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/accounts/password_change.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/accounts/password_change_done.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/accounts/password_reset.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/accounts/password_reset_complete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/accounts/password_reset_confirm.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/accounts/password_reset_done.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/accounts/sign-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/accounts/sign-in.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Templates/accounts/sign-up.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/accounts/sign-up.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/appointment/appointment.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/appointment/appointment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/appointment/appointment.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/appointment/includes/appointment.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Templates/appointment/search-appointment.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/appointment/search-appointment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/appointment/user_appointment-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/appointment/user_appointment-details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/appointment/user_appointment-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/appointment/includes/user_appointment-details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Templates/appointment/userbase.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/appointment/userbase.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/appointment/view_appointment.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/appointment/view_appointment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/clinic/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/clinic/blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/clinic/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/clinic/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/appointment/view_appointment.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/appointment/includes/view_appointment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/clinic/admin/base_site.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/accounts/admin/base_site.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/clinic/admin/dashboard.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/clinic/blog.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/clinic/footer.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Templates/clinic/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/clinic/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/clinic/messages.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/clinic/messages.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/clinic/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/clinic/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/doc_profile/search-appointment.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/doc_profile/search-appointment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/clinic/messages.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/clinic/navbar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/clinic/services.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/doc_profile/between-dates-report.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/doc_profile/dochome.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/doc_profile/docreg.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/doc_profile/doctor_appointment_list_details.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/doc_profile/patient_app_appointment.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/doc_profile/patient_appointment_details.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/doc_profile/patient_list_app_appointment.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/doc_profile/search-appointment.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/doc_profile/view_appointment.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Templates/user_profile/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/user_profile/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/user_profile/nav bar.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/user_profile/nav bar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/user_profile/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/user_profile/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/user_profile/user_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/user_profile/user_profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/appointment/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/appointment/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/user_profile/nav bar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/user_profile/profile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/user_profile/user_profile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/user_profile/user_profile_update.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/appointment/css/animate.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/appointment/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/appointment/css/owl.carousel.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/appointment/css/tempusdominus-bootstrap-4.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/fonts/nucleo-icons.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/fonts/nucleo-icons.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/fonts/nucleo-icons.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/fonts/nucleo-icons.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/fonts/nucleo-icons.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/fonts/nucleo.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/fonts/nucleo.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/fonts/nucleo.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/fonts/nucleo.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/js/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/user_profile/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/user_profile/images/about-banner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/user_profile/images/hero-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/user_profile/js/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/admin.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/argon-dashboard.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/argon-dashboard.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/argon-dashboard.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/forms.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/nucleo-icons.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/nucleo-svg.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/widgets.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/nucleo-icons.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/nucleo-icons.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/nucleo-icons.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/nucleo-icons.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/nucleo-icons.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/nucleo.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/nucleo.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/nucleo.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/nucleo.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/about-banner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/blog-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/blog-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/blog-3.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/images/cta-banner.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/doctor-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/doctor-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/doctor-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/doctor-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/doctor-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/doctor-4.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/images/hero-banner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/hero-bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/service-banner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/service-icon-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/service-icon-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/service-icon-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/service-icon-4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/service-icon-5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/service-icon-6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/core/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/core/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/core/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/plugins/Chart.extension.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/plugins/bootstrap-notify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/plugins/chartjs.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/plugins/perfect-scrollbar.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/plugins/smooth-scrollbar.min.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,8 +144,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -77,24 +161,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Junction_Dental_Clinic/Junction_Dental/media/icon"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Junction_Dental_Clinic/Junction_Dental&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Junction_Dental_Clinic\Junction_Dental" />
+      <recent name="C:\Junction_Dental_Clinic\Junction_Dental\Templates\dashboard\includes" />
+      <recent name="C:\Junction_Dental_Clinic\Junction_Dental\Templates\accounts\includes" />
+      <recent name="C:\Junction_Dental_Clinic\Junction_Dental\static\accounts\js\plugins" />
       <recent name="C:\Junction_Dental_Clinic\Junction_Dental\media\icon" />
-      <recent name="C:\Junction_Dental_Clinic\Junction_Dental\media\profile_photos" />
-      <recent name="C:\Junction_Dental_Clinic\Junction_Dental\static\css" />
-      <recent name="C:\Junction_Dental_Clinic\Junction_Dental\Templates\clinic\admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Junction_Dental_Clinic\Junction_Dental\static\view_my_location_pin" />
-      <recent name="C:\Junction_Dental_Clinic\Junction_Dental\Templates\view_my_location_pin" />
+      <recent name="C:\Junction_Dental_Clinic\Junction_Dental\Templates\accounts" />
+      <recent name="C:\Junction_Dental_Clinic\Junction_Dental\static\accounts\js" />
+      <recent name="C:\Junction_Dental_Clinic\Junction_Dental\Templates\dashboard\includes" />
+      <recent name="C:\Junction_Dental_Clinic\Junction_Dental\Templates\appointment\includes" />
+      <recent name="C:\Junction_Dental_Clinic\Junction_Dental\Templates" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -120,8 +208,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Accounts/views.py</url>
-          <line>108</line>
-          <option name="timeStamp" value="3" />
+          <line>93</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,11 +1,11 @@
-from .EmailBackEnd import EmailBackEnd
-from django.contrib.auth import logout, login
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, HttpResponse
-from .models import Specialization, DoctorReg, Page
+from .models import Specialization, Page
+from Dashboard.models import DoctorReg
 from Appointment.models import Appointment
 from datetime import datetime
+
 
 @login_required(login_url='/')
 def doctor_home(request):
@@ -13,7 +13,7 @@ def doctor_home(request):
     context = {
         'doctor_count': doctor_count,
     }
-    return render(request, 'doc_profile/dochome.html', context)
+    return render(request, 'dashboard/dashboard.html', context)
 
 
 @login_required(login_url='/')
