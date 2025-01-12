@@ -56,19 +56,22 @@ def create_appointment(request):
             worry_id=worry_instance,
             additional_msg=additional_msg
         )
+        try:
 
-        if User.objects.filter(email=email).exists() | User.objects.filter(username=full_name).exists():
-            messages.info(request, 'Account exist on Membership Plan . Kindly Login to your Account')
-        # Display a success message
+            if User.objects.filter(email=email).exists() | User.objects.filter(username=full_name).exists():
+                messages.error(request, 'Account exist on Membership Plan . Kindly Login to your Account')
+                context = {'doctorview': doctorview, 'appointment_details': appointment_details,
+                           'page': page}
+                return render(request, 'accounts/includes/appointment_success.html', context)
+        except ValueError:
+            messages.error(request, "Account not found")
+            return redirect('appointment')  # Redirect back to the appointment page
         messages.success(request, "Your Appointment Request Has Been Sent. We Will Contact You Soon")
         appointment_details.save()
-        context = {'doctorview': doctorview, 'appointment_details':appointment_details,
-                   'page': page}
-        return render(request, 'accounts/includes/appointment_success.html', context)
-
+        return redirect('appointment')  # Redirect back to the appointment page
     context = {'doctorview': doctorview, 'worry': worry,
                'page': page}
-    return render(request, 'appointment/includes/appointment.html', context)
+    return render(request, 'user_profile/includes/appointment_form.html', context)
 
 
 def User_Search_Appointments(request):

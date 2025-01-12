@@ -1,0 +1,1 @@
+web: gunicorn Junction_Dental.wsgi:application

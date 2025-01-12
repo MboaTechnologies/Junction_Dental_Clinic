@@ -24,11 +24,11 @@
         </div>
       </div>
       <div class="container">
-        <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
+        <div class="row mt-lg-n30 mt-md-n11 mt-n10 justify-content-center">
           <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
             <div class="card z-index-0">
               <div class="card-header text-center pt-4">
-                <h5>Create Account and Track Appointment</h5>
+                <h5>Follow-up  Appointment</h5>
               </div>
               <div class="row px-xl-5 px-sm-4 px-3">
                 <div class="col-3 ms-auto px-1">
@@ -76,14 +76,15 @@
               </div>
               <div class="card-body">
                   <div class="form-check form-check-info text-start" >
-
-
-                  </div>
-                  <div class="text-center">
-                    <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign up</button>
+                  {% if request.user.is_authenticated %}
+                <div class="text-center">
+        <a href="{% url 'user_profile_view' %}" class="btn btn-primary w-100 my-4 mb-2">  {{user.first_name}}, Login</a>
+                </div> {% else %}
+<a href="{% url 'user_profile_view' %}" class="btn btn-primary w-100 my-4 mb-2">    {{appointment_details.fullname}}, Create your Account</a>
+                  {% endif %}
                   </div>
                      <div class="text-center">
-                    <a  href="{% url 'login' %}" > Login
+                    <a  href="{% url 'hero' %}" >view Junction Dental Clinic
                     </a>
                   </div>
               </div>
