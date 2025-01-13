@@ -1,0 +1,22 @@
+databases:
+  - name: junction_dental_db_user
+    plan: free
+    databaseName: junction_dental_db
+    user: junction_dental_db_user
+
+services:
+  - type: web
+    plan: free
+    name: junction_dental
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "python -m gunicorn Junction_Dental.asgi:application -k uvicorn.workers.UvicornWorker"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: Junction_Dental
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4

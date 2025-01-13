@@ -26,6 +26,7 @@ crispy-tailwind==1.0.3
 cron-descriptor==1.4.5
 cryptography==43.0.3
 django==5.0.1
+dj-database-url
 django-admin-black==1.0.14
 django-api-generator==1.0.18
 django-browser-reload==1.17.0
