@@ -26,7 +26,7 @@ ALLOWED_HOSTS = ['https://junction-dental.onrender.com/', '*']
 INSTALLED_APPS = [
   
     'Junction_Dental',
-    'django_browser_reload',
+    # 'django_browser_reload',
     'django.contrib.admin',
     'django.contrib.humanize',
     'django.contrib.auth',
