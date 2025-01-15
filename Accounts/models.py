@@ -32,7 +32,7 @@ class User(AbstractUser):
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES, default="")
     # mobile_number = PhoneNumberField(max_length=13, blank=True, null=True, unique=True)
     mobile_number = models.CharField(max_length=13, blank=True, null=True, unique=True)
-
+    registered = models.BooleanField(default=False)
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
@@ -98,7 +98,7 @@ class NextOfKin(models.Model):
     relationship = models.CharField(max_length=50, choices=RELATIONSHIP_CHOICES)
     # kin_mobile_number = PhoneNumberField(max_length=13, blank=True, null=True, unique=False)
     kin_mobile_number = models.CharField(max_length=13, blank=True, null=True, unique=False)
-
+    registered = models.BooleanField(default=False)
     def __str__(self):
         return f"{self.kin_fname} {self.kin_lname}"
 
@@ -107,25 +107,7 @@ class NextOfKin(models.Model):
         verbose_name_plural = "Next of Kins"
 
 
-# Create a model for Patient ID(Student & Staff)
-class ID(models.Model):
-    PATIENT_TYPE_CHOICES = [
-        ('', '-----'),
-        ('Member_Patient', 'Member_Patient'),
-        ('NextOfKin_Patient', 'NextOfKin_Patient'),
-        ('Staff', 'Staff'),
-        ('New_Patient', 'New_Patient'),
-    ]
-    patient_id = models.CharField(max_length=15, unique=True)
-    patient_type = models.CharField(max_length=50, choices=PATIENT_TYPE_CHOICES)
-    registered = models.BooleanField(default=False)
 
-    def __str__(self):
-        return f"{self.patient_type} ID: {self.patient_id}"
-
-    class Meta:
-        verbose_name = "Patient ID"
-        verbose_name_plural = "Patient IDs"
 
 
 # Create a method to generate a random appointment ID

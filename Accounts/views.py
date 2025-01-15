@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import RegistrationForm, LoginForm, UserPasswordResetForm, UserSetPasswordForm, UserPasswordChangeForm
+from .forms import UserProfileUpdateForm, RegistrationForm, LoginForm, UserPasswordResetForm, UserSetPasswordForm, \
+    UserPasswordChangeForm
 from django.contrib.auth.views import LoginView, PasswordResetView, PasswordResetConfirmView, PasswordChangeView
 from django.contrib.auth import logout
 from .models import User
@@ -57,7 +58,6 @@ def user_logout_view(request):
     return redirect('/accounts/login/')
 
 
-
 def user_profile_view(request):
     user_view = request.user
     page = Page.objects.all()
@@ -90,12 +90,12 @@ def user_profile(request):
     return render(request, 'user_profile/includes/profile.html', context)
 
 
-@login_required(login_url='/')
-def profile_Update(request):
+@login_required(login_url='/accounts/login')
+def profile_Update_shit(request):
+    form = UserProfileUpdateForm()
     member = User.objects.get(email=request.user)
-
     if request.method == 'POST':
-        if request.FILES.get('image') is None:
+        if request.FILES.get('image') is not None:
             profile_photo = member.profile_photo
             first_name = request.POST.get('first_name')
             last_name = request.POST.get('last_name')
@@ -103,7 +103,7 @@ def profile_Update(request):
             phone_number = request.POST.get('phone_number')
             username = request.POST.get('username')
             try:
-                if request.FILES.get('image') is not None:
+                if request.FILES.get('image') is None:
                     profile_photo = request.FILES.get('profile_picture')
 
                 member.profile_photo = profile_photo
@@ -113,9 +113,53 @@ def profile_Update(request):
                 member.email = email
                 member.last_name = last_name
                 member.save()
+                context = {'member': member}
 
             except:
                 messages.error(request, "Your profile updation has been failed")
-        return render(request, 'user_profile/includes/user_profile_update.html')
-    return render(request, 'user_profile/includes/user_profile_update.html')
+                return render(request, 'user_profile/includes/user_profile_update.html')
+        return render(request, 'user_profile/includes/user_profile_update.html', context)
 
+
+@login_required(login_url='/accounts/login')
+def profile_Update(request):
+    member_profile = User.objects.all()
+    form = UserProfileUpdateForm()
+    if request.method == 'POST':
+        profile_photo = member_profile.profile_photo
+        first_name = member_profile.first_name
+        second_name = member_profile.last_name
+        specialization = member_profile.specialization
+        is_Doctor = member_profile.is_Doctor
+        next_of_kin = member_profile.next_of_kin
+        has_next_of_kin = member_profile.has_next_of_kin
+        is_Member_Patient = member_profile.is_Member_Patient
+        email = member_profile.email
+        username = member_profile.username
+        patient_type = member_profile.patient_type
+        patient_id = member_profile.patient_id
+        member_code = member_profile.member_code
+        gender = member_profile.gender
+        mobile_number = member_profile.mobile_number
+        registered = member_profile.registered
+
+        member_profile.profile_photo = profile_photo
+        member_profile.first_name = first_name
+        member_profile.second_name = second_name
+        member_profile.specialization = specialization
+        member_profile.registered = registered
+        member_profile.mobile_number = mobile_number
+        member_profile.member_code = member_code
+        member_profile.gender = gender
+        member_profile.patient_type = patient_type
+        member_profile.patient_id = patient_id
+        member_profile.is_Doctor = is_Doctor
+        member_profile.next_of_kin = next_of_kin
+        member_profile.has_next_of_kin = has_next_of_kin
+        member_profile.is_Member_Patient = is_Member_Patient
+        member_profile.email = email
+        member_profile.username = username
+        member_profile.save()
+        return render(request, 'user_profile/includes/profile.html')
+
+    return render(request, 'user_profile/includes/user_profile_update.html', {'form': form})

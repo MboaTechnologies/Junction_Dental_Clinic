@@ -21,94 +21,28 @@
           {% endfor %}
                <div class="row align-items-center">
                   <div class="home-text">
-                     <center> <div style="display:flex;display-direction:row;">
+                  <div style="display:flex;display-direction:row;">
 </div>
+                       <div style="margin-top:10vh;" class="  form-container hero-form-wrapper">
+                <form method="post" action="{% url 'user_profile_update' %}" role="form">
+                  {% csrf_token %}
+                     <div class="form-group">
 
-                     </center>
-     <form action="" style="width:100%; border: 2px solid  #f6f4f0;opacity:1px;color:green;margin-top: 40px; padding:10%; border-radius:40px;" method="POST" enctype="multipart/form-data">
-                        {% csrf_token %}
-                       <div class="grid grid-cols-2 gap-3 lg:p-6 p-4">
-
-                            <div class="col-span-2">
-                                <img  style=" border-radius:100%;margin-bottom:40px;" width="150" height="150" src=" {{user.profile_photo.url}}" /> <br></div>
-                                <div class="col-span-2">
-                                 <label >first name</label>
-                                <input style="width:98%;" type="text" name="first_name" value="{{user.first_name}}" class=" input-field shadow-none bg-gray-100">
-                                </div>
-                                    <div class="col-span-2">
-                                  <label >second name</label>
-                                <input style="width:98%;" type="text" name="second_name" value="{{user.second_name}}" class="bty shadow-none bg-gray-100">
-</div>
-
-                           <div class="col-span-2">
-                                <label for="mobile_number">mobile_number</label>
-                                <input placeholder="mobile_number" style="width:95%;" type="tel" id="mobile_number" value="0{{user.mobile_number}}" name="mobile_number" class="bty shadow-none bg-gray-100">
-                            </div>
-                          <div class="col-span-2">
-                                <label for="gender">gender</label>
-                                <input placeholder="gender" style="width:95%;" type="text" id="gender" value="{{user.gender}}" name="gender" class="bty shadow-none bg-gray-100">
-                            </div>
-                           <div class="col-span-2">
-                                <label > member code </label>
-                                <input style="width:95%;" type="text" name="member_code" value="{{user.member_code}}" class="btn shadow-none bg-gray-100">
-                            </div>
-                            <div class="col-span-2">
-                                <label > email</label>
-                                <input style="width:95%;" type="text" name="email" value="{{user.email}}" class="btn shadow-none bg-gray-100">
-                            </div>
-                             <div class="col-span-2">
-                                <label >  patient_id</label>
-                                <input style="width:95%;" type="text" name="patient_id" value="{{user.patient_id}}" class="btn shadow-none bg-gray-100">
-                            </div>
-                           <div class="col-span-2">
-                                <label > patient_type </label>
-                                <input style="  width:95%;" type="text" name="private_key" value="{{user.patient_type }}" class="btn shadow-none bg-gray-100">
-                            </div>
-                               <div class="col-span-2">
-                                <label > specialization</label>
-                                <input style="width:95%;" type="text" name="Country" value="{{user.specialization }}" class="btn shadow-none bg-gray-100">
-                            </div>
-                             <div class="col-span-2">
-                                <label > is_Doctor </label>
-                                <input style="width:95%;" type="text" name="city" value="{{user.is_Doctor }}"  class=" bty shadow-none bg-gray-100">
-                            </div>
-
-                            <div class="col-span-2">
-                                <label > next_of_kin</label>
-                                <input type="text" name="location" value="{{user.next_of_kin}}" style="width:95%;" class=" btn shadow-none bg-gray-100">
-                            </div>
-
-                           <div class="col-span-2">
-                                <label > has_next_of_kin</label>
-                                <input type="text" name="street_address" value="{{user.has_next_of_kin}}" style="width:95%;" class=" btn shadow-none bg-gray-100">
-                            </div>
-                            <div class="col-span-2">
-                                <label > is_Member_Patient </label>
-                                <input type="text" name="apartment_address" value="{{user.is_Member_Patient }}" style="width:95%;" class=" btn shadow-none bg-gray-100">
-                            </div>
-
-                            <div class="col-span-2">
-                                         <label for="Joined">Joined</label>
-                                <input placeholder="Date Joined..." style="background-color:none;width:95%;" type="tel" id="Joined" value="{{user_profile.created_at }}" name="Joined" class="bty shadow-none bg-gray-100">
-                           </div>
-                       </div>
-
-                       <div class="bg-gray-10 p-6 pt-0 flex justify-end space-x-3">
-                           <button style=" border-radius:7px;background-color:#000; " class=" bty p-2 px-4 rounded bg-gray-50 text-red-500"> <a style="color:#f6f4f0;" href="/">Cancel</a> </button>
-                           <button style=" border-radius:7px; background-color:#008800; color:#001100;" type="submit" class=" bty button bg-blue-700"> Save </button>
-                       </div>
-                    </form>
-
-
-
-                <center>
+           <div class="row g-3 ">
+                  {% for fields in form %}
+                    <div class="mb-3">
+                      {{fields}}
+                    </div>
+                    <small>{{ fields.errors }}</small>
+                  {% endfor %}
+             <center  style="display:flex;flex-direction:row;padding:10px;margin:10px;">
                         <div style="margin-top:26px;width:80%; border-radius:10px; "  class="btn">
-                         <a style=" color:green;" href="{% url 'logout' %}" > Log out</a>
-
+                         <a style=" color:red;" href="{% url 'logout' %}" > Log out</a>
                    </div>
-
-
- </center>
+                    <button style="margin-top:26px; margin-left:10px;width:80%; border-radius:10px; " type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Change</button>
+                </center>
+           </div></div></form>
+              </div>
                         </div>
                </div>
             </div>

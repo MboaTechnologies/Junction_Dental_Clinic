@@ -3,15 +3,10 @@
 {% block content %}
 
 
-<div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
-    <div class="container py-5">
-        <h1 class="display-3 text-white mb-3 animated slideInDown">Appointment</h1>
-    </div>
-</div>
-<!-- Page Header End -->
+
 
 <!-- Appointment Start -->
-<div class="container-xxl py-10">
+<div class="container-xxl py-1">
     <div class="container">
     <div class="row">
     <div class="col-sm-20">
@@ -47,10 +42,11 @@
                                                 <td>{{ i.status}}</td>{% endif %}
     <td class="text-right">
     <div class="actions">
-    <a href="{% url 'doctorappointmentlist' i.id %}">
+    <a href="{% url 'doctor_appointment_list' i.id %}">
     <i class="btn btn-primary btn-block">View</i>
     </a>
-  
+
+
     </div>
     </td>
     </tr> {% endfor %}

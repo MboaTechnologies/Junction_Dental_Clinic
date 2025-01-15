@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import User, NextOfKin, ID, OTP
+from .models import User, NextOfKin, OTP
 # Create a custom user admin class
 admin.site.register(User)
 
@@ -50,16 +50,6 @@ class NextOfKinAdmin(admin.ModelAdmin):
     list_display = ('kin_fname', 'kin_lname', 'related_patient', 'relationship', 'kin_mobile_number')
     list_filter = ('kin_fname', 'kin_lname', 'related_patient', 'relationship', 'kin_mobile_number')
     search_fields = ('kin_fname', 'kin_lname', 'related_patient', 'relationship', 'kin_mobile_number')
-
-
-admin.site.register(ID)
-
-
-class IDAdmin(admin.ModelAdmin):
-    list_display = ('patient_id', 'patient_type', 'registered')
-    list_filter = ('patient_id', 'patient_type', 'registered')
-
-    search_fields = ('patient_id', 'patient_type', 'registered')
 
 
 admin.site.register(OTP)

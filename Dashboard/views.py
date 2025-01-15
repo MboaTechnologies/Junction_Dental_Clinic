@@ -262,7 +262,7 @@ def Patient_Appointment_Details_Remark(request):
         patientaptdet.save()
         messages.success(request, "Status Update successfully")
         context = {'patientaptdet': patientaptdet,'app_word': 'Patient Details'}
-        return render(request, 'dashboard/includes/view_appointment.html', context)
+        return render(request, 'dashboard/includes/doctor_appointment_list_details.html', context)
 
     return redirect('view_appointment')
 

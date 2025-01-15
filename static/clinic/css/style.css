@@ -1,3 +1,18 @@
+/*-----------------------------------*\
+  #style.css
+\*-----------------------------------*/
+
+/**
+ * copyright 2022 codewithsadee
+ */
+
+
+
+
+
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
 
 :root {
 
@@ -33,9 +48,8 @@
    * typography
    */
 
-  --ff-roboto: 'League Spartan', sans-serif;
-  --ff-poppins: 'League Spartan', sans-serif;;
-
+  --ff-roboto: "Roboto", sans-serif;
+  --ff-poppins: "Poppins", sans-serif;
 
   --fs-1: 4rem;
   --fs-2: 3.6rem;
@@ -228,13 +242,13 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  padding-block: 2px;
+  padding-block: 15px;
   z-index: 4;
 }
 
 .header-bottom.active {
   position: fixed;
-  top: -35px;
+  top: -81px;
   background-color: var(--white);
   box-shadow: var(--shadow-2);
   animation: slideIn 0.5s var(--cubic-out) forwards;
@@ -255,7 +269,7 @@ body {
 .logo {
   color: var(--oxford-blue-1);
   font-family: var(--ff-poppins);
-  font-size: 2.4rem;
+  font-size: 3.4rem;
   font-weight: var(--fw-800);
 }
 

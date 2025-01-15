@@ -29,17 +29,21 @@ class RegistrationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username', 'email',)
+        fields = ('mobile_number', 'username', 'email',)
 
         widgets = {
+            'email': forms.EmailInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Email'
+            }),
             'username': forms.TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Username'
             }),
-            'email': forms.EmailInput(attrs={
+            'mobile_number': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Email'
-            })
+                'placeholder': 'PhoneNumber'
+            }),
         }
 
 
@@ -85,3 +89,44 @@ class UserPasswordChangeForm(PasswordChangeForm):
         'class': 'form-control',
         'placeholder': 'Confirm New Password'
     }), label="Confirm New Password")
+
+
+class UserProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = [
+            'username',
+            'email',
+            'first_name',
+            'last_name',
+            'mobile_number',
+            'gender',
+            'member_code',
+            'patient_id',
+            'patient_type',
+            'next_of_kin',
+            'profile_photo',
+
+        ]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.fields:
+            self.fields[field].widget.attrs.update({
+                'class': (
+                    'form-group '),
+                'placeholder': field,
+                'style': (
+                    'width:98%;'
+                    'border-radius: 8px;'
+                    'resize: none;'
+                    'color:  # 001100;'
+                    'height: 40px;'
+                    'border: 1px solid  # 4141;'
+                    'background-color: transparent;'
+                    ' font-family: inherit;'
+
+                ),
+
+            })
