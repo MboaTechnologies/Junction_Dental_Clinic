@@ -1,7 +1,7 @@
-
-
+{% extends 'admin/base.html' %}
 {% load static %}
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link class="bty" style="width:50px;height:50px;border-radius:100%;" rel="shortcut icon" href="{% static 'img/Mboa Academy.jpg '%}"  id="icon" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Junction Dental - {{user.email}}</title>
   <link rel="shortcut icon" href="{% static 'icon/Junction_Dental.png '%}" type="image/svg+xml">
   <link href="{% static 'clinic/css/style.css' %}" rel="stylesheet">
@@ -10,8 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-
-  <section class="home-section align-items-center sec-padding " style="margin-top:10vh;background-color:rgba(0,0,0,0.2);opacity:100%; border-radius:40px;backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);"
+<section class="home-section align-items-center sec-padding " style="margin-top:10vh;background-color:rgba(0,0,0,0.2);opacity:100%; border-radius:40px;backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);"
           id="home" xmlns="">
             <div  class="container">
                <div class=" align-items-center">
@@ -19,7 +18,7 @@
             <div  style="Background-color:transparent;" class="container">
 {% block branding %}
     <center>
-   <img src="{% static 'icon/Junction_Dental.png' %}" style=" width:100px;height:100px; border-radius:100%;" alt="" class=" brand_img">
+   <img src="{% static 'img/Mboa Academy.jpg' %}" style=" width:100px;height:100px; border-radius:100%;" alt="" class=" brand_img">
       <br>
     <h1  id="head" style="margin-top:5vh;color:#f0f9f8;font-size:100%;font-weight:bold;font-family:Comic Sans Mn;"> <a href="/admin">MboaEx
         <i class="fa fa-check-circle" style="color: #48dbfb;" aria-hidden="true"></i>

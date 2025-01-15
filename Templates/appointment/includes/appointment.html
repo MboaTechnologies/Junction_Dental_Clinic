@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-  <form method="POST" action="{% url 'appointment' %}">
+ <form method="POST" action="{% url 'appointment' %}">
                         {% csrf_token %}
                         {% include 'clinic/includes/messages.html' %}
                         <div class="row g-3">

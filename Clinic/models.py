@@ -34,3 +34,15 @@ class Page(models.Model):
 
     def __str__(self):
         return self.pagetitle
+
+class Blog(models.Model):
+    blog_code = models.CharField(default=generate_service_id, null=True, max_length=6, )
+    blog_title = models.CharField(max_length=250)
+    blog_subtitle = models.CharField(max_length=250)
+    blog_image = models.ImageField(upload_to='profile_photos/', null=False, default='icon/bondijunction_dentalclinic_logo-300x258.jpg', blank=False)
+    blog_member = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.blog_title

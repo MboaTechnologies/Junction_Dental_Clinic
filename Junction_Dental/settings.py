@@ -13,8 +13,10 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = config('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS = ['https://junction-dental.onrender.com/', 'junction-dental.onrender.com']
+# DEBUG = config('DEBUG', default=False, cast=bool)
+
+DEBUG = True
+ALLOWED_HOSTS = ['https://junction-dental.onrender.com/', '*']
 
 INSTALLED_APPS = [
 
@@ -68,21 +70,21 @@ WSGI_APPLICATION = 'Junction_Dental.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # Replace the SQLite DATABASES configuration with PostgreSQL:
-DATABASES = {
-    'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgresql://junction_dental_db_user:LucwTNQzdL1ibqUSLcbcmNmhHF8u1Dsq@dpg-cu20u9ogph6c73em3fcg-a/junction_dental_db',
-        conn_max_age=600
-    )
-}
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         # Replace this value with your local database's connection string.
+#         default='postgresql://junction_dental_db_user:LucwTNQzdL1ibqUSLcbcmNmhHF8u1Dsq@dpg-cu20u9ogph6c73em3fcg-a/junction_dental_db',
+#         conn_max_age=600
+#     )
+# }
 
 # DATABASES = {
 #     'default': {
@@ -137,8 +139,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # and renames the files with unique names for each version to support long-term caching
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+LOGIN_REDIRECT_URL = '/accounts/profile/'
 
-LOGIN_REDIRECT_URL = '/accounts/profile/update'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Default primary key field type
@@ -146,16 +148,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://junction-dental.onrender.com',  'junction-dental.onrender.com']
+# CSRF_TRUSTED_ORIGINS = ['http://junction-dental.onrender.com',  'http://127.0.0.1:8000/']
 
-SECURE_SSL_REDIRECT = True
-SECURE_HSTS_SECONDS = 31536000
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
-SECURE_BROWSER_XSS_FILTER = True
-SECURE_CONTENT_TYPE_NOSNIFF = True
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = True
+# SECURE_HSTS_SECONDS = 31536000
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# SECURE_HSTS_PRELOAD = True
+# SECURE_BROWSER_XSS_FILTER = True
+# SECURE_CONTENT_TYPE_NOSNIFF = True
+# CSRF_COOKIE_SECURE = True
+# SESSION_COOKIE_SECURE = True
 
 LOGGING = {
     'version': 1,

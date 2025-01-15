@@ -58,22 +58,23 @@ def create_appointment(request):
         )
         try:
 
-            if User.objects.filter(email=email).exists() | User.objects.filter(username=full_name).exists():
-                messages.error(request, 'Account exist on Membership Plan . Kindly Login to your Account')
+            if User.objects.filter(email=email).exists() and User.objects.filter(mobile_number=mobile_number).exists():
+                messages.success(request, f'Account exist on Membership Plan . Kindly Login to your Account of email  {email}')
                 context = {'doctorview': doctorview, 'appointment_details': appointment_details,
                            'page': page}
                 return render(request, 'accounts/includes/appointment_success.html', context)
         except ValueError:
             messages.error(request, "Account not found")
-            return redirect('appointment')  # Redirect back to the appointment page
+            return redirect('register')  # Redirect back to the appointment page
         messages.success(request, "Your Appointment Request Has Been Sent. We Will Contact You Soon")
         appointment_details.save()
-        return redirect('appointment')  # Redirect back to the appointment page
+        return redirect('register')  # Redirect back to the appointment page
     context = {'doctorview': doctorview, 'worry': worry,
                'page': page}
     return render(request, 'user_profile/includes/appointment_form.html', context)
 
 
+@login_required(login_url='/accounts/login')
 def User_Search_Appointments(request):
     page = Page.objects.all()
     MemberUser = request.user
@@ -100,6 +101,7 @@ def User_Search_Appointments(request):
         return render(request, 'appointment/userbase.html', context)
 
 
+@login_required(login_url='/accounts/login')
 def user_profile_history_appointment(request):
     user_view = request.user
     page = Page.objects.all()

@@ -6,7 +6,7 @@
         <ul class="navbar-list">
 
           <li>
-            <a href="#" class="navbar-link" data-nav-link>Home</a>
+            <a href="/" class="navbar-link" data-nav-link>Home</a>
           </li>
 
           <li>
@@ -29,7 +29,7 @@
         {% if request.user.is_authenticated and request.user.is_superuser %}
         <a href="{% url 'doctor_home' %}" class="btn btn-secondary">{{user.first_name}}</a>
                   {% else %}
-                  <a href="{% url 'user_profile' %}" class="btn btn-secondary">{{user.first_name}}</a>
+                  <a href="{% url 'user_profile_update' %}" class="btn btn-secondary">{{user.username}}</a>
                   {% endif %}
 
       <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>

@@ -2,12 +2,12 @@
 {% block content %}
 {% load static %}
                {% include 'clinic/includes/messages.html' %}
-      <div style="margin-top:10vh;" class="  form-container hero-form-wrapper">
+  <div style="margin-top:2vh;" class="  form-container hero-form-wrapper">
       <form  action="{% url 'appointment' %}" class="hero-form" method="POST">
           {% csrf_token %}
         <div class="form-group">
 
-           <div class="row g-3 ">
+           <div class="row g-10 ">
                <div class="input-wrapper">
                             <div class="col-12 col-sm-6">
                                 <input type="text" class="form-control border-0" placeholder="Your Name" style="height: 55px;" name="full_name" required="true">
@@ -19,18 +19,18 @@
                                 <input type="text" class="form-select border-0" placeholder="Your Mobile" style="height: 55px;" name="mobile_number" maxlength="10" required="true">
                             </div>
                             <div class="col-12 col-sm-6">
-                                <select class="form-select border-0" style="height: 55px;" name="doctor_id" required="true">
+                                <select class="form-select border-1" style="color:#001100;height: 55px;" name="doctor_id" required="true">
                                     <option selected>Choose Doctor</option>
                                     {% for doctor in doctorview %}
-        <option value="{{ doctor.id }}">{{ doctor.admin.first_name }} {{ doctor.admin.last_name }}</option>
+        <option style="color:#001100;" value="{{ doctor.id }}">{{ doctor.member.first_name }} {{ doctor.member.last_name }}</option>
     {% endfor %}
 
                                 </select>
                             </div>
                             <div class="col-12 col-sm-6">
-                                <div class="date" id="date" data-target-input="nearest">
+                                <div style="color:#001100;" class="date" id="date" data-target-input="nearest">
                                     <input type="date"
-                                        class="form-control border-0 datetimepicker-input"
+                                        class=" border-0 datetimepicker-input"
                                         placeholder="Choose Date" data-target="#date" data-toggle="datetimepicker" style="height: 55px;" name="date_of_appointment" required="true">
                                 </div>
                             </div>

@@ -76,12 +76,15 @@
               </div>
               <div class="card-body">
                   <div class="form-check form-check-info text-start" >
-                  {% if request.user.is_authenticated %}
+                  {% if request.user.is_authenticated and appointment_details.email == user.email %}
                 <div class="text-center">
-        <a href="{% url 'user_profile_view' %}" class="btn btn-primary w-100 my-4 mb-2">  {{user.first_name}}, Login</a>
+        <a href="{% url 'user_profile_view' %}" class="btn btn-primary w-100 my-4 mb-2">  {{user.username}}, Login</a>
                 </div> {% else %}
-<a href="{% url 'user_profile_view' %}" class="btn btn-primary w-100 my-4 mb-2">    {{appointment_details.fullname}}, Create your Account</a>
-                  {% endif %}
+         <a href="{% url 'login' %}" class="btn btn-primary w-100 my-4 mb-2">    {{appointment_details.fullname}}, Login</a>
+           {% endif %}
+                       <a href="{% url 'register' %}" class="btn btn-secondary  w-100 my-4 mb-2">Create your Account</a>
+
+
                   </div>
                      <div class="text-center">
                     <a  href="{% url 'hero' %}" >view Junction Dental Clinic
