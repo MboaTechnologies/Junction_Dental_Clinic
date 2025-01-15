@@ -1,7 +1,8 @@
+import dj_database_url
 from pathlib import Path
 import os
 from decouple import config
-import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -14,10 +15,11 @@ SECRET_KEY = config('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS = ['https://junction-dental.onrender.com/', 'junction-dental.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1','https://junction-dental.onrender.com/', 'congenial-sniffle-jwwvxwq549pf5r57-8000.app.github.dev']
 
 INSTALLED_APPS = [
-
+  
+    'Junction_Dental',
     'django_browser_reload',
     'django.contrib.admin',
     'django.contrib.humanize',
@@ -26,7 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Junction_Dental',
+
     'Accounts',
     'Clinic',
     'Appointment',
@@ -36,6 +38,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -76,10 +79,11 @@ WSGI_APPLICATION = 'Junction_Dental.wsgi.application'
 # }
 
 # Replace the SQLite DATABASES configuration with PostgreSQL:
+# Replace the SQLite DATABASES configuration with PostgreSQL:
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://junction_dental_db_user:LucwTNQzdL1ibqUSLcbcmNmhHF8u1Dsq@dpg-cu20u9ogph6c73em3fcg-a/junction_dental_db',
+        default='postgresql://postgres:postgres@localhost:5432/Junction_Dental',
         conn_max_age=600
     )
 }
@@ -130,12 +134,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+if not DEBUG:
+    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
+    # and renames the files with unique names for each version to support long-term caching
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
 # and renames the files with unique names for each version to support long-term caching
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 
 LOGIN_REDIRECT_URL = '/accounts/profile/update'
@@ -146,7 +157,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://junction-dental.onrender.com',  'junction-dental.onrender.com']
+CSRF_TRUSTED_ORIGINS = ['https://junction-dental.onrender.com',  'http://127.0.0.1:8000']
 
 SECURE_SSL_REDIRECT = True
 SECURE_HSTS_SECONDS = 31536000
