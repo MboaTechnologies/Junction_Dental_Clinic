@@ -1,5 +1,5 @@
 databases:
-  - name: junction_dentaldb
+  - name: junction_dental_db
     plan: free
     databaseName: junction_dental
     user: junction_dental
