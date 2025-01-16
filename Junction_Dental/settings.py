@@ -15,8 +15,8 @@ SECRET_KEY = config('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS = ['127.0.0.1','https://junction-dental.onrender.com/', 'congenial-sniffle-jwwvxwq549pf5r57-8000.app.github.dev']
-
+# ALLOWED_HOSTS = ['127.0.0.1','https://junction-dental.onrender.com/', 'congenial-sniffle-jwwvxwq549pf5r57-8000.app.github.dev']
+ALLOWED_HOSTS = ['*']
 # DEBUG = config('DEBUG', default=False, cast=bool)
 #
 # DEBUG = True
