@@ -77,23 +77,22 @@ WSGI_APPLICATION = 'Junction_Dental.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-# Replace the SQLite DATABASES configuration with PostgreSQL:
-
-# Replace the SQLite DATABASES configuration with PostgreSQL:
 DATABASES = {
-    'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgresql://mboa_technologies:Lo0jfbPff0gXDsGDms69iCwOMzOautRY@dpg-cu4j6trqf0us7382on7g-a/junction_dental_clinic',
-        conn_max_age=600
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+# Replace the SQLite DATABASES configuration with PostgreSQL:
+
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         # Replace this value with your local database's connection string.
+#         default='postgresql://mboa_technologies:Lo0jfbPff0gXDsGDms69iCwOMzOautRY@dpg-cu4j6trqf0us7382on7g-a/junction_dental_clinic',
+#         conn_max_age=600
+#     )
+# }
 
 # DATABASES = {
 #     'default': dj_database_url.config(
