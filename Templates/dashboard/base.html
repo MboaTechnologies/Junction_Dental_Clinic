@@ -3,7 +3,14 @@
 
 {% include 'appointment/includes/scripts.html' %}
 {% include 'clinic/includes/messages.html' %}
+   {% include "accounts/includes/fixed-plugin.html" %}
 {% include 'accounts/includes/navigation-fullscreen.html'%}
+ {% block navigation %}
+          {% include "accounts/includes/navigation.html" %}
+        {% endblock navigation %}
+
+
+
 {% block overlay %}
   <div class="min-height-300 bg-primary position-absolute w-100"></div>
 {% endblock overlay %}

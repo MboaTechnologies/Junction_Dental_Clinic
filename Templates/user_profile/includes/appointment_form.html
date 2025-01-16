@@ -3,12 +3,14 @@
 {% load static %}
                {% include 'clinic/includes/messages.html' %}
   <div style="margin-top:2vh;" class="  form-container hero-form-wrapper">
+        <h1>So excited to know about you?</h1>
       <form  action="{% url 'appointment' %}" class="hero-form" method="POST">
           {% csrf_token %}
         <div class="form-group">
 
-           <div class="row g-10 ">
-               <div class="input-wrapper">
+           <div class="row g-5 ">
+
+
                             <div class="col-12 col-sm-6">
                                 <input type="text" class="form-control border-0" placeholder="Your Name" style="height: 55px;" name="full_name" required="true">
                             </div>
@@ -49,6 +51,7 @@
                                 </select>
                             </div>
                         </div>
+             <div class="input-wrapper">
                             <div class="col-12" style="padding-top: 20px;">
                                 <textarea class="form-control border-0" rows="10" placeholder="Describe your problem" name="additional_msg"></textarea>
                             </div><div class="col-12" style="padding-top: 20px;">

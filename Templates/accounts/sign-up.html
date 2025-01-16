@@ -3,7 +3,7 @@
 
 {% block content %}
 
- {% include 'clinic/includes/messages.html' %}
+
 
     <main class="main-content  mt-0">
       <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('{% static 'user_profile/images/hero-bg.jpg' %}'); background-position: top;">
@@ -21,6 +21,7 @@
         <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
           <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
             <div class="card z-index-0">
+               {% include 'clinic/includes/messages.html' %}
               <div class="card-header text-center pt-4">
                 <h5>Register with</h5>
               </div>

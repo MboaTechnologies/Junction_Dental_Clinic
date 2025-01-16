@@ -25,6 +25,14 @@
           </a></li>
 
     {% if request.user.is_authenticated and  request.user.is_superuser %}
+         <li class="nav-item">
+        <a class="nav-link " href="{% url 'search_appointment' %}">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-single-02 text-success text-sm opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1">Search</span>
+        </a>
+      </li>
       <li class="nav-item">
         <a class="nav-link " href="{% url 'patient_approved_appointment' %}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -38,13 +46,22 @@
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
           </div>
-          <span class="nav-link-text ms-1">New</span>
+          <span class="nav-link-text ms-1">New </span>
+        </a>
+      </li>
+
+        <li class="nav-item">
+        <a class="nav-link " href="{% url 'between_date_report' %}">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-calendar-grid-58 text-success text-sm opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1">Between Dates</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="{% url 'patient_cancelled_appointment' %}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-app text-info text-sm opacity-10"></i>
+            <i class="ni ni-app text-danger text-sm opacity-10"></i>
           </div>
           <span class="nav-link-text ms-1">Cancelled</span>
         </a>
@@ -52,13 +69,13 @@
       <li class="nav-item">
         <a class="nav-link " href="{% url 'patient_appointment_completed' %}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
+            <i class="ni ni-world-2 text-success text-sm opacity-10"></i>
           </div>
           <span class="nav-link-text ms-1">Completed</span>
         </a>
       </li>
       <li class="nav-item mt-3">
-        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
+        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account Profile</h6>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="{% url 'patient_list_appointment' %}">

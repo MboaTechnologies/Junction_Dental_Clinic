@@ -276,7 +276,7 @@ body {
 .nav-toggle-btn {
   color: var(--black);
   font-size: 30px;
-  border: 1px solid var(--black);
+  border: none;
   padding: 5px;
 }
 

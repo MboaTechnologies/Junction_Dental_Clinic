@@ -9,6 +9,8 @@ from datetime import datetime
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import random
 from Clinic.models import Page
+
+
 # Create your views here.
 
 
@@ -16,7 +18,7 @@ from Clinic.models import Page
 def DoctorSignup(request):
     specialization = Specialization.objects.all()
     if request.method == "POST":
-        pic = request.FILES.get('pic')
+        profile_photo = request.FILES.get('pic')
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
         username = request.POST.get('username')
@@ -27,18 +29,18 @@ def DoctorSignup(request):
 
         if User.objects.filter(email=email).exists():
             messages.warning(request, 'Email already exist')
-            return redirect('docsignup')
+            return redirect('Doctor_registration')
         if User.objects.filter(username=username).exists():
             messages.warning(request, 'Username already exist')
-            return redirect('docsignup')
+            return redirect('Doctor_registration')
         else:
             user = User(
                 first_name=first_name,
                 last_name=last_name,
                 username=username,
                 email=email,
-                user_type=2,
-                profile_pic=pic,
+                patient_type=2,
+                profile_photo=profile_photo,
             )
             user.set_password(password)
             user.save()
@@ -46,8 +48,8 @@ def DoctorSignup(request):
             doctor = DoctorReg(
                 member=user,
 
-                mobilenumber=mobno,
-                specialization_id=spid,
+                mobile_number=mobno,
+                specialization=spid,
 
             )
             doctor.save()
@@ -114,7 +116,7 @@ def create_appointment(request):
         # Display a success message
         messages.success(request, "Your Appointment Request Has Been Sent. We Will Contact You Soon")
         appointment_details.save()
-        context = {'doctorview': doctorview, 'appointment_details':appointment_details,
+        context = {'doctorview': doctorview, 'appointment_details': appointment_details,
                    'page': page}
         return render(request, 'accounts/includes/appointment_success.html', context)
 
@@ -243,7 +245,7 @@ def Patient_Appointment_Completed(request):
 @login_required(login_url='/accounts/login/')
 def Patient_Appointment_Details(request, id):
     patientdetails = Appointment.objects.filter(id=id)
-    context = {'patientdetails': patientdetails,'app_word': 'Details'
+    context = {'patientdetails': patientdetails, 'app_word': 'Details'
 
                }
 
@@ -261,7 +263,7 @@ def Patient_Appointment_Details_Remark(request):
         patientaptdet.status = status
         patientaptdet.save()
         messages.success(request, "Status Update successfully")
-        context = {'patientaptdet': patientaptdet,'app_word': 'Patient Details'}
+        context = {'patientaptdet': patientaptdet, 'app_word': 'Patient Details'}
         return render(request, 'dashboard/includes/doctor_appointment_list_details.html', context)
 
     return redirect('view_appointment')
@@ -305,8 +307,24 @@ def Patient_List_Approved_Appointment(request):
 
 @login_required(login_url='/accounts/login')
 def DoctorAppointmentList(request, id):
-    patientdetails = Appointment.objects.filter(id=id)
-    context = {'patientdetails': patientdetails , 'app_word': 'Doctor Approved List '
+    patientdetails = Appointment.objects.filter(id=id,status='Completed')
+    context = {'patientdetails': patientdetails, 'app_word': 'Doctor Approved List '
 
                }
     return render(request, 'dashboard/includes/doctor_appointment_list_details.html', context)
+
+
+@login_required(login_url='/accounts/login')
+def mpesa(request):
+    return render(request, 'dashboard/includes/billing.html')
+
+
+@login_required(login_url='/accounts/login')
+def records(request):
+    return render(request, 'dashboard/includes/tables.html')
+
+
+
+@login_required(login_url='/accounts/login')
+def member(request):
+    return render(request, 'dashboard/includes/profile.html')
