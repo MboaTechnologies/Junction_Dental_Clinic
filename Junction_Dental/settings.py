@@ -90,8 +90,7 @@ WSGI_APPLICATION = 'Junction_Dental.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://junction_dental_db_user:LucwTNQzdL1ibqUSLcbcmNmhHF8u1Dsq@dpg-cu20u9ogph6c73em3fcg-a/junction_dental_db',
-        
+        default='postgresql://mboa_technologies:Lo0jfbPff0gXDsGDms69iCwOMzOautRY@dpg-cu4j6trqf0us7382on7g-a/junction_dental_clinic',
         conn_max_age=600
     )
 }
