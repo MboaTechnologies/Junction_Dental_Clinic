@@ -18,15 +18,15 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = ['127.0.0.1','https://junction-dental.onrender.com/', 'congenial-sniffle-jwwvxwq549pf5r57-8000.app.github.dev']
 
 # DEBUG = config('DEBUG', default=False, cast=bool)
-
-DEBUG = True
-ALLOWED_HOSTS = ['https://junction-dental.onrender.com/', '*']
+#
+# DEBUG = True
+# ALLOWED_HOSTS = ['https://junction-dental.onrender.com/', '*']
 
 
 INSTALLED_APPS = [
   
     'Junction_Dental',
-    # 'django_browser_reload',
+    'django_browser_reload',
     'django.contrib.admin',
     'django.contrib.humanize',
     'django.contrib.auth',
@@ -77,12 +77,12 @@ WSGI_APPLICATION = 'Junction_Dental.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # Replace the SQLite DATABASES configuration with PostgreSQL:
 
