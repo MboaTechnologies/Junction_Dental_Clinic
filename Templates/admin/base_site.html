@@ -1,6 +1,6 @@
 {% extends 'accounts/base.html' %}
 {% load static %}
-
+{% block content %}
 
 <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container py-1">
@@ -47,10 +47,9 @@
     <div class="card-body">
         {% include 'clinic/includes/messages.html' %}
     <div class="table-responsive">
-          {% block content %}
+         
                 <!-- Add content here -->
-                {% endblock %}
-
+               
 
     </div>
     </div>
@@ -60,3 +59,4 @@
     </div>
     </div>
 </div>
+{% endblock %}
