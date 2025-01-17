@@ -1,39 +1,22 @@
 {% extends 'dashboard/base.html' %}
 {% load static %}
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Junction Dental - {{user.email}}</title>
-  <link rel="shortcut icon" href="{% static 'icon/Junction_Dental.png '%}" type="image/svg+xml">
-  <link href="{% static 'clinic/css/style.css' %}" rel="stylesheet">
-  <link href="{% static 'clinic/css/admin.css' %}" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
-<section class="home-section align-items-center sec-padding " style="margin-top:10vh;background-color:rgba(0,0,0,0.2);opacity:100%; border-radius:40px;backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);"
-          id="home" xmlns="">
-            <div  class="container">
-               <div class=" align-items-center">
-                  <div  class="section-title" >
-            <div  style="Background-color:transparent;" class="container">
-{% block branding %}
-    <center>
-   <img src="{% static 'img/Mboa Academy.jpg' %}" style=" width:100px;height:100px; border-radius:100%;" alt="" class=" brand_img">
+{% block content %}
+
+<div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-1">
+        {% block extrastyle %}
+  <link rel="stylesheet" href="{% static 'clinic/css/admin.css' %}">
+{% endblock %}
+        {% block branding %}
+
+   <img src="{% static 'icon/Junction_Dental.png' %}" style=" width:100px;height:100px; border-radius:100%;" alt="" class=" brand_img">
       <br>
     <h1  id="head" style="margin-top:5vh;color:#f0f9f8;font-size:100%;font-weight:bold;font-family:Comic Sans Mn;"> <a href="/admin">Junction Dental
         <i class="fa fa-check-circle" style="color: #48dbfb;" aria-hidden="true"></i>
       <h2 style="  margin-left:10px; margin-top:20px; font-size:90%; color:#000;font-weight:bold"> "Your Smile is our priority"</h2>
   </a></h1>
 
-        <form  action="/plug/follow" method="POST">
-					{% csrf_token %}
-							<div style="margin:5%;display: flex; flex-direction: row;">
-               <div style="border:2px #001100 solid;padding:2%;width:80%; border-radius:10px; height:10vh;margin-left:1px" class="bty"> </div>
-               <div style="border:2px #001100 solid;width:80%; border-radius:10px;padding:2%; height:10vh;margin-left:1px" class="bty"> </div>
-               <div style="border:2px #001100 solid;padding:2%;width:80%; border-radius:10px; height:10vh;margin-left:1px;text-align:center;" class="bty"></div>
-              </div>
 
-
-				</form>
         <div class="add-btn timeline-info">
         				<div style=" border-bottom:none; margin-bottom:2px; border:none; " >
 <button  class="bty " style="background-color:#ffffff00; border:2px solid #000;font-weight: bold;font-size: 14px;color:#f6f4f0; border-radius: 40px; height:5vh; padding-bottom:5%; margin-top:5px;  width:80%; " >
@@ -45,18 +28,36 @@
                                   </div>
         </div>
 {% endblock %}
-                <div class="lg:container lg:mx-auto">
-                {% include 'clinic/includes/messages.html' %}
-                {% block content %}
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Generate  Report </h1>
+    </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Appointment Start -->
+<div class="container-xxl py-10">
+    <div class="container">
+    <div class="row">
+    <div class="col-sm-20">
+    <div class="card card- table">
+    <div class="card-body">
+        {% include 'clinic/includes/messages.html' %}
+               </div>
+    <div class="card card-table">
+
+    <div class="card-body">
+        {% include 'clinic/includes/messages.html' %}
+    <div class="table-responsive">
+          {% block content %}
                 <!-- Add content here -->
                 {% endblock %}
-            </div>
 
 
-{% block extrastyle %}
-  <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+</div>
 {% endblock %}
-    </center>
-                  </div>
-               </div>
-               </div></div></section>
