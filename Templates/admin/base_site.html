@@ -2,6 +2,17 @@
 {% load static %}
 {% block content %}
 
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Junction Dental - {{user.email}}</title>
+  <link rel="shortcut icon" href="{% static 'icon/Junction_Dental.png'%}" type="image/svg+xml">
+  <link href="{% static 'user_profile/css/style.css' %}" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
 <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container py-1">
         {% block extrastyle %}
