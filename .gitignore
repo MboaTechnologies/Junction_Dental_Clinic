@@ -47,7 +47,7 @@ htmlcov/
 .coverage.*
 
 # Build and distribution directories
-build/
+
 dist/
 
 
