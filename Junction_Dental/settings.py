@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django-sendsms',
 
     'Accounts',
     'Clinic',
@@ -203,3 +204,4 @@ LOGGING = {
     },
 }
 # twillio Account Recovery CYLFDTYXGFV38LMFXFXJM4S6
+SENDSMS_BACKEND = 'Junction_Dental.mysmsbackend.SmsBackend'
