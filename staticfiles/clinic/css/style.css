@@ -280,7 +280,7 @@ body {
 
 .navbar {
   position: absolute;
-  top: calc(100% + 6px);
+  top: calc(100% + 5px);
   left: 25px;
   right: 25px;
   background-color: var(--white);
