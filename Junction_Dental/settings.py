@@ -40,10 +40,21 @@ INSTALLED_APPS = [
     'Clinic',
     'Appointment',
     'Dashboard',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',  # Required for social authentication
+    'allauth.socialaccount.providers.google',  # Add other providers as needed
+
+
+    
+    
 
 ]
 
+SITE_ID = 1
+
 MIDDLEWARE = [
+
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -53,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_browser_reload.middleware.BrowserReloadMiddleware',
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = 'Junction_Dental.urls'
@@ -118,6 +130,10 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # Default
+    'allauth.account.auth_backends.AuthenticationBackend', ] # Added for allauth
+
 AUTH_USER_MODEL = 'Accounts.User'
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -153,15 +169,29 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
 # and renames the files with unique names for each version to support long-term caching
 
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': '1002135850953-mt52t7sl6cfl4dh0a7e9u79v9sv7rben.apps.googleusercontent.com',
+            'secret': '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',
+            'key': ''
+        }
+    }
+}
 
 LOGIN_REDIRECT_URL = '/accounts/profile/'
+ACCOUNT_SIGNUP_REDIRECT_URL = '/accounts/register'
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -172,9 +202,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CSRF_TRUSTED_ORIGINS = ['https://junction-dental.onrender.com',  'http://127.0.0.1:8000']
-
-# CSRF_TRUSTED_ORIGINS = ['http://junction-dental.onrender.com',  'http://127.0.0.1:8000/']
-
 
 # SECURE_SSL_REDIRECT = True
 # SECURE_HSTS_SECONDS = 31536000
@@ -205,3 +232,9 @@ LOGGING = {
 }
 # twillio Account Recovery CYLFDTYXGFV38LMFXFXJM4S6
 SENDSMS_BACKEND = 'Junction_Dental.mysmsbackend.SmsBackend'
+
+# Email configuration
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"  # Options: "none", "optional", "mandatory"
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"  # Options: "username", "email", "username_email"
+ACCOUNT_USERNAME_REQUIRED = True
