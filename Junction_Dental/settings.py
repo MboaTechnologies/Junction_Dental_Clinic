@@ -189,8 +189,8 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-LOGIN_REDIRECT_URL = '/accounts/profile/'
-ACCOUNT_SIGNUP_REDIRECT_URL = '/accounts/register'
+LOGIN_REDIRECT_URL = '/accounts/profile'
+ACCOUNT_SIGNUP_REDIRECT_URL = 'accounts/profile'
 
 
 MEDIA_URL = '/media/'

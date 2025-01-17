@@ -19,7 +19,7 @@ from django.conf import settings
 urlpatterns = [
     path("__reload__/", include("django_browser_reload.urls")),
     path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')),
+    path('account/', include('allauth.urls')),
     path('', include('Clinic.urls')),
     path('', include('Accounts.urls')),
     path('', include('Appointment.urls')),
