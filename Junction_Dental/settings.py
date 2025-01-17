@@ -37,10 +37,12 @@ INSTALLED_APPS = [
     'sendsms',
 
     'Accounts',
+    'channels',
     'Clinic',
     'Appointment',
     'Dashboard',
     'allauth',
+    'chat',
     'allauth.account',
     'allauth.socialaccount',  # Required for social authentication
     'allauth.socialaccount.providers.google',  # Add other providers as needed
