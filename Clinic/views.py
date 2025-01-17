@@ -5,6 +5,10 @@ from .models import Specialization, Page
 from Dashboard.models import DoctorReg
 from Appointment.models import Appointment
 from datetime import datetime
+from django.http import HttpResponse
+from twilio.twiml.messaging_response import MessagingResponse
+from django.http import JsonResponse
+from .utils import send_sms
 
 
 @login_required(login_url='/')
@@ -178,4 +182,27 @@ def Update_Website_Details(request):
 
 def HeroView(request):
     return render(request, "clinic/index.html")
+
+
+def sms_reply(request):
+    response = MessagingResponse()
+    response.message("Thank you for your message!")
+    return HttpResponse(str(response), content_type="text/xml")
+
+
+
+
+def send_sms_view(request):
+    to = request.GET.get('to')  # e.g., "+1234567890"
+    message = request.GET.get('message', 'Hello from Twilio!')
+
+    if not to:
+        return JsonResponse({"error": "Recipient number is required."}, status=400)
+
+    sms = send_sms(to, message)
+
+    if sms:
+        return JsonResponse({"success": f"Message sent to {to}"})
+    return JsonResponse({"error": "Failed to send message."}, status=500)
+
 
