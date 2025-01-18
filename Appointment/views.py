@@ -9,6 +9,7 @@ from datetime import datetime
 from Dashboard.models import DoctorReg
 from Accounts.models import User
 from django.core.mail import send_mail
+from .utils import send_sms
 
 
 # def create_appointment(request):
@@ -212,11 +213,23 @@ def create_appointment(request):
         try:
             # Check if the user account exists
             if User.objects.filter(email=email).exists() and User.objects.filter(mobile_number=mobile_number).exists():
-                messages.success(request, f'Account exists with email {email}. Kindly log in to your account.')
-                context = {'doctorview': doctorview, 'appointment_details': appointment_details, 'page': page}
-                return render(request, 'accounts/includes/appointment_success.html', context)
-        except ValueError:
-            messages.error(request, "Account not found")
+                sms_message = (
+                f"Hello {full_name},\n"
+                f"Your appointment has been confirmed.\n"
+                f"Appointment Number: {appointment_number}\n"
+                f"Date: {date_of_appointment}\n"
+                f"Time: {time_of_appointment}\n"
+                f"Doctor: {doc_instance}\n"
+                f"Concern: {worry_instance}\n"
+                f"Thank you for choosing us!"
+            )
+                send_sms(mobile_number, sms_message)
+            messages.success(request, f' Appointment confirmed and SMS sent. Account exists with email {email}. Kindly log in to your account.')
+            context = {'doctorview': doctorview, 'appointment_details': appointment_details, 'page': page}
+            return render(request, 'accounts/includes/appointment_success.html', context)
+                
+        except Exception as e:
+            messages.error(request, f"Appointment confirmed but failed to send SMS: {str(e)}")
             return redirect('register')  # Redirect back to the registration page
 
         # Send confirmation email
@@ -232,7 +245,7 @@ def create_appointment(request):
             f"Concern: {worry_instance}\n\n"
             f"We look forward to serving you.\n\n"
             f"Best regards,\n"
-            f"Your Healthcare Team"
+            f"Junction Dental Clinic"
         )
         try:
             send_mail(
