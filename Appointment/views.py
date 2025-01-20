@@ -99,7 +99,7 @@ def User_Search_Appointments(request):
             else:
                 print("No Record Found")
                 context = {'page': page}
-                return render(request, 'appointment/userbase.html ', context)
+                return render(request, 'appointment/userbase.html', context)
 
         # If the request method is not GET
         context = {'page': page}
