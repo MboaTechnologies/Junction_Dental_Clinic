@@ -86,7 +86,7 @@ def user_profile(request):
         Appointee = Appointment_History
         messages.info(request, 'Your Appointment History Exists')
         context = {'Appointee': Appointee, 'user_view': user_view, 'page': page, 'services': Services, }
-        return render(request, 'user_profile/includes/profile.html', context)
+        return render(request, 'dashboard/includes/profile.html', context)
     return render(request, 'user_profile/includes/profile.html', context)
 
 

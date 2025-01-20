@@ -4,42 +4,45 @@
 
  <link href="{% static 'user_profile/css/style.css' %}" rel="stylesheet">
 
+
 <div class="container-xxl py-10">
     <div class="container">
     <div class="row">
         {% include 'clinic/includes/messages.html' %}
-<img src="{{user.profile_photo.url}}" alt="{{user.first_name}}">
 
-        <br>
-{{user.first_name}}
-        <br>
-    {{user.last_name}}
-        <br>
-       {{user.email}}
-<br>
-    {{user.username}}
-        <br>
-        {{user.gender}}
-        <br>
-      {{ user.is_Member_Patient}}
-<br>
-        {{user.mobile_number}}
-        <br>
-{{user.patient_type}}
-        <br>
-        {{user.date_joined}}
-        <br>
-        {{user.member_code}}
-        <br>
-
-{% for i in Appointee %}
-{{ i.appointment_number}}
- {% endfor %}
-
-        <button class="card-action-btn" ><a href="{% url 'logout' %}" >Logout</a>
-        </button>
-
-</div>
-    </div>
-</div>
-{% endblock %}
+        <div class="container mt-4">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <img src="{{user.profile_photo.url}}" alt="{{user.first_name}}" class="img-fluid rounded-circle mb-3" style="max-width: 150px;">
+                            <h3 class="card-title">{{ user.first_name }} {{ user.last_name }}</h3>
+                            <p class="card-text">{{ user.email }}</p>
+        
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><strong>Username:</strong> {{ user.username }}</li>
+                                <li class="list-group-item"><strong>Gender:</strong> {{ user.gender }}</li>
+                                <li class="list-group-item"><strong>Member Status:</strong> {{ user.is_Member_Patient }}</li>
+                                <li class="list-group-item"><strong>Mobile Number:</strong> {{ user.mobile_number }}</li>
+                                <li class="list-group-item"><strong>Patient Type:</strong> {{ user.patient_type }}</li>
+                                <li class="list-group-item"><strong>Date Joined:</strong> {{ user.date_joined }}</li>
+                                <li class="list-group-item"><strong>Member Code:</strong> {{ user.member_code }}</li>
+                            </ul>
+        
+                            <h5 class="mt-4">Appointments</h5>
+                            <ul class="list-group">
+                                {% for i in Appointee %}
+                                    <li class="list-group-item">Appointment Number: {{ i.appointment_number }}</li>
+                                {% endfor %}
+                            </ul>
+        
+                            <div class="mt-4">
+                                <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        {% endblock %} 

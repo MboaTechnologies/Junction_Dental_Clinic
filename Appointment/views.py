@@ -10,6 +10,9 @@ from Dashboard.models import DoctorReg
 from Accounts.models import User
 from django.core.mail import send_mail
 from .utils import send_sms
+from .utils import send_sms_via_email
+import africastalking
+from decouple import config
 
 
 # def create_appointment(request):
@@ -265,3 +268,19 @@ def create_appointment(request):
 
     context = {'doctorview': doctorview, 'worry': worry, 'page': page}
     return render(request, 'user_profile/includes/appointment_form.html', context)
+
+
+
+# Initialize SDK
+# username = config("API_USERNAME", default="sandbox")
+# api_key = config("API_KEY",default="test_api_key")
+# africastalking.initialize(username, api_key)
+
+def african_talking_sms(request):
+    username = 'Junction_Dental'
+    api_key = 'atsk_b01b9fd8dee78206cc4681fad067690fe9faf1e06d2f68bb0a916adea1235a32868bc2ca'
+    africastalking.initialize(username, api_key)
+    sms = africastalking.SMS
+    response = sms.send("Hello Message!", ["+254708534184"])
+    return render(request, 'user_profile/includes/appointment_form.html', response)
+ 
