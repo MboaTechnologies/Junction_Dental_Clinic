@@ -10,7 +10,15 @@
     <div class="row">
         {% include 'clinic/includes/messages.html' %}
 
-       
+
+        <h5 class="mt-4">Appointments</h5>
+        <ul class="list-group">
+            {% for i in Appointment %}
+                <li class="list-group-item">Appointment Number: {{ i.appointment_number }}</li>
+            {% endfor %}
+        </ul>
+
+               
         <section class="newsletter" aria-label="newsletter">
             <div class="container">
     
@@ -21,7 +29,7 @@
               </div>
     
               <form action="" class="newsletter-form">
-                <input type="email" name="email_address" placeholder="send us a message... :" aria-label="Enter your email"
+                <input type="email" name="email_address" placeholder="send us a message..." aria-label="Enter your email"
                   required class="email-field">
     
                 <button type="submit" class="btn btn-secondary">Send</button>
@@ -45,12 +53,6 @@
                                     <li class="list-group-item"><strong>Member Code:</strong> {{ user.member_code }}</li>
                                 </ul>
             
-                                <h5 class="mt-4">Appointments</h5>
-                                <ul class="list-group">
-                                    {% for i in Appointee %}
-                                        <li class="list-group-item">Appointment Number: {{ i.appointment_number }}</li>
-                                    {% endfor %}
-                                </ul>
                                
                             </div>
                         </div>
