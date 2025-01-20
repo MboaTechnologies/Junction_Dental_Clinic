@@ -1,6 +1,14 @@
-{% extends 'accounts/base.html' %}
+{% extends 'admin/base.html' %}
 {% load static %}
+{% block content %}
 
+
+  <link rel="shortcut icon" href="{% static 'icon/Junction_Dental.png'%}" type="image/svg+xml">
+  <link href="{% static 'user_profile/css/style.css' %}" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
 
 <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container py-1">
@@ -8,24 +16,19 @@
   <link rel="stylesheet" href="{% static 'clinic/css/admin.css' %}">
 {% endblock %}
         {% block branding %}
+        <center>
 
    <img src="{% static 'icon/Junction_Dental.png' %}" style=" width:100px;height:100px; border-radius:100%;" alt="" class=" brand_img">
       <br>
-    <h1  id="head" style="margin-top:5vh;color:#f0f9f8;font-size:100%;font-weight:bold;font-family:Comic Sans Mn;"> <a href="/admin">Junction Dental
+    <h1  id="head" style="margin-top:5vh;color:#f0f9f8;font-size:100%;font-weight:bold;font-family:Comic Sans Mn;"> <a href="/">Junction Dental
         <i class="fa fa-check-circle" style="color: #48dbfb;" aria-hidden="true"></i>
       <h2 style="  margin-left:10px; margin-top:20px; font-size:90%; color:#000;font-weight:bold"> "Your Smile is our priority"</h2>
   </a></h1>
-
+                                     
+</center>
 
         <div class="add-btn timeline-info">
-        				<div style=" border-bottom:none; margin-bottom:2px; border:none; " >
-<button  class="bty " style="background-color:#ffffff00; border:2px solid #000;font-weight: bold;font-size: 14px;color:#f6f4f0; border-radius: 40px; height:5vh; padding-bottom:5%; margin-top:5px;  width:80%; " >
-    <a style="color:#6BBE4E;" href="admin/Dashboard"><p>Dashboard</p> </a></button>
-                                  </div>
-        				<div style=" border-bottom:none; margin-bottom:2px; border:none; " >
-<button  class="bty " style="background-color:#6BBE4E; border:2px solid #001100 ;font-weight: bold;font-size: 14px;color:#f6f4f0; border-radius: 40px; height:5vh; padding-bottom:5%; margin-top:5px;  width:80%; " >
-    <a style="color:#f9f7f0;" href="/wallet"><p>View Site</p> </a></button>
-                                  </div>
+        				
         </div>
 {% endblock %}
         <h1 class="display-3 text-white mb-3 animated slideInDown">Generate  Report </h1>
@@ -39,18 +42,13 @@
     <div class="row">
     <div class="col-sm-20">
     <div class="card card- table">
-    <div class="card-body">
-        {% include 'clinic/includes/messages.html' %}
-               </div>
-    <div class="card card-table">
 
     <div class="card-body">
         {% include 'clinic/includes/messages.html' %}
     <div class="table-responsive">
-          {% block content %}
+         
                 <!-- Add content here -->
-                {% endblock %}
-
+               
 
     </div>
     </div>
@@ -60,3 +58,4 @@
     </div>
     </div>
 </div>
+{% endblock %}
