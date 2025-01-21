@@ -199,10 +199,17 @@
           </div>
 
           <form action="" class="newsletter-form">
-            <input type="email" name="email_address" placeholder="Enter your email :" aria-label="Enter your email"
+            <input type="email"id="userMessage" name="email_address" placeholder="Enter your email :" aria-label="Enter your email"
               required class="email-field">
-
-            <button type="submit" class="btn btn-secondary">Subscribe</button>
+            <button type="submit" onclick="sendMessage()" class="btn btn-secondary">Subscribe</button>
+            <script>
+              function sendMessage() {
+                  const baseURL = "https://wa.me/+254708534184";
+                  const userMessage = encodeURIComponent(document.getElementById('userMessage').value);
+                  const fullURL = `${baseURL}?text=${userMessage}`;
+                  window.open(fullURL, '_blank');
+              }
+              </script>
           </form>
 
         </div>
