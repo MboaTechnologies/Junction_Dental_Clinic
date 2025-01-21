@@ -1,15 +1,13 @@
 from twilio.rest import Client
 from django.conf import settings
 from django.core.mail import send_mail
+from decouple import config
+
 
 
 def send_sms(phone_number, message):
-    client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
-    client.messages.create(
-        body=message,
-        from_=settings.TWILIO_PHONE_NUMBER,
-        to=phone_number
-    )
+    client = Client(config('TWILIO_ACCOUNT_SID'), config('TWILIO_AUTH_TOKEN'))
+    client.messages.create(body=message,from_=config('TWILIO_PHONE_NUMBER'),to=phone_number)
 
 
 
