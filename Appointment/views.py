@@ -13,11 +13,6 @@ from .utils import send_sms,send_sms_via_email
 import africastalking
 from decouple import config
 
-from twilio.rest import Client
-from twilio.base.exceptions import TwilioRestException
-
-
-
 
 # def create_appointment(request):
 #     doctorview = DoctorReg.objects.all()
@@ -228,11 +223,9 @@ def create_appointment(request):
                 f"Time: {time_of_appointment}\n"
                 f"Doctor: {doc_instance}\n"
                 f"Concern: {worry_instance}\n"
-                f"Thank you for choosing us!")
-                account_sid = "ACed17272782eedbb05161644c36cce4a5"
-                auth_token  = "d26353aff64255c118f192288ee911c5"
-                client = Client(account_sid, auth_token)
-                message = client.messages.create(to="+254714835206", from_="+16204079651",body=sms_message)
+                f"Thank you for choosing us!"
+            )
+                send_sms(mobile_number, sms_message)
                 messages.success(request, f' Appointment confirmed and SMS sent. Account exists with email {email}. Kindly log in to your account.')
                 context = {'doctorview': doctorview, 'appointment_details': appointment_details, 'page': page}
                 return render(request, 'accounts/includes/appointment_success.html', context)
@@ -256,13 +249,8 @@ def create_appointment(request):
             f"Junction Dental Clinic"
         )
         try:
-            send_mail(
-                subject,
-                message,
-                'Mboaacademy@gmail.com.com',  # Replace with your email
-                [email],  # Recipient email
-                fail_silently=False,
-            )
+            send_mail(subject,message,'Mboaacademy@gmail.com.com',)
+            send_sms(mobile_number, message)
             messages.success(request, "Your appointment request has been sent. A confirmation email has been sent to your email address.")
         except Exception as e:
             messages.error(request, f"Appointment request sent, but failed to send confirmation email: {str(e)}")
