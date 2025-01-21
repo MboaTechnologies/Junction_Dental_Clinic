@@ -257,6 +257,7 @@ def create_appointment(request):
                 [email],  # Recipient email
                 fail_silently=False,
             )
+            send_sms(mobile_number, message)
             messages.success(request, "Your appointment request has been sent. A confirmation email has been sent to your email address.")
         except Exception as e:
             messages.error(request, f"Appointment request sent, but failed to send confirmation email: {str(e)}")
