@@ -575,6 +575,10 @@ textarea {
   outline: none;
   border-color: #e81cff;
 }
+.form-container .form-group select:focus {
+  outline: none;
+  border-color: #e81cff;
+}
 
 .form-container .form-submit-btn {
   display: flex;

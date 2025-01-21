@@ -16,7 +16,7 @@
                                 <input type="text" class="form-control border-0" placeholder="Your Name" style="height: 55px;" name="full_name" required="true">
                             </div>
                             </div>
-                           
+
                             <div class="input-wrapper">
                                 <div class="col-12 col-sm-6">
                                 <label for="email">Your Email</label>
@@ -59,24 +59,23 @@
                                 <label for="time">Choose Time</label>
                            
                                 <div class="time" id="time" data-target-input="nearest"></div>
-        <input type="time" class="form-control border-0" placeholder="Choose Time" data-target="#time" data-toggle="datetimepicker" style="height: 55px;" name="time_of_appointment" step="60" required="true">
-    </div>
-    </div>
-    <div class="input-wrapper">
+                              <input type="time" class="form-control border-0" placeholder="Choose Time" data-target="#time" data-toggle="datetimepicker" style="height: 55px;" name="time_of_appointment" step="60" required="true">
+                                 </div>
+                                      </div>
+                           <div class="input-wrapper">
                            <div class="col-12 col-sm-6">
                             <label for="worry">Select Service</label>
                                 <select class="form-select border-0" style="height: 55px;" name="worry_need" required="false">
                                     <option selected>Select Service...</option>
                                     {% for worry in worry %}
-        <option value="{{ worry.id }}">{{worry }}</option>
-    {% endfor %}
+                                 <option value="{{ worry.id }}">{{worry }}</option>
+                                 {% endfor %}
 
                                 </select>
                             </div>
                         </div>
-                        </div>
-             <div class="input-wrapper">
-                <div class="col-12 col-sm-6">
+                           <div class="input-wrapper">
+                                <div class="col-12 col-sm-6">
                                 <label for="message">Describe Your Problem</label>
                                 <textarea class="form-control border-0" rows="10" placeholder="Describe your problem" name="additional_msg"></textarea>
                             </div>
