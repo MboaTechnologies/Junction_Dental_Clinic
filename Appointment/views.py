@@ -227,10 +227,9 @@ def create_appointment(request):
                 f"Thank you for choosing us!"
             )
                 send_sms(mobile_number, sms_message)
-            messages.success(request, f' Appointment confirmed and SMS sent. Account exists with email {email}. Kindly log in to your account.')
-            context = {'doctorview': doctorview, 'appointment_details': appointment_details, 'page': page}
-            return render(request, 'accounts/includes/appointment_success.html', context)
-                
+                messages.success(request, f' Appointment confirmed and SMS sent. Account exists with email {email}. Kindly log in to your account.')
+                context = {'doctorview': doctorview, 'appointment_details': appointment_details, 'page': page}
+                return render(request, 'accounts/includes/appointment_success.html', context)
         except Exception as e:
             messages.error(request, f"Appointment confirmed but failed to send SMS: {str(e)}")
             return redirect('register')  # Redirect back to the registration page
