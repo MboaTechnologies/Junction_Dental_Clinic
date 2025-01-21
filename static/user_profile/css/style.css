@@ -349,7 +349,6 @@ body {
 
 .hero-form-wrapper {
   background-color: var(--white);
-  max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
   margin-block-start: -100px;
