@@ -422,6 +422,21 @@ body {
   left: 15px;
   color: var(--oxford-blue);
   --ionicon-stroke-width: 40px;
+
+
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+textarea {
+  resize: none;
+  height: 100px;
 }
 
 .hero-form .input-field { padding-inline: 45px 15px; }
