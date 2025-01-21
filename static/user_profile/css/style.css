@@ -382,6 +382,7 @@ body {
 }
 
 .hero-form {
+  max-width: fit-content;
   display: flex;
   gap: 20px;
   padding: 25px;
