@@ -9,8 +9,7 @@ from datetime import datetime
 from Dashboard.models import DoctorReg
 from Accounts.models import User
 from django.core.mail import send_mail
-from .utils import send_sms
-from .utils import send_sms_via_email
+from .utils import send_sms,send_sms_via_email
 import africastalking
 from decouple import config
 
