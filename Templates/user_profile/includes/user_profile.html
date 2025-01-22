@@ -57,10 +57,8 @@
 
             <form action="{% url 'user_search_appointment' %}" class="hero-form">
               <div class="input-wrapper">
-                <input type="search" name="search" id="search" placeholder="Search your appointment" required
+                <input type="search" name="search" id="search" placeholder="Search your appointment  " required
                   style="border-radius:20px;" class="input-field">
-
-                <ion-icon name="search-outline"></ion-icon>
 
               </div>
 
@@ -183,7 +181,7 @@
           <p class="section-text">
          Request for Dental Consultancy Services and Video Call Your Dentist</p>
 
-          <button class="btn btn-primary">
+          <button  href="tel:+254708534184" class="btn btn-primary">
             <ion-icon name="call-outline"></ion-icon>
 
             <span class="span">Talk to Doctor</span>
@@ -201,10 +199,17 @@
           </div>
 
           <form action="" class="newsletter-form">
-            <input type="email" name="email_address" placeholder="Enter your email :" aria-label="Enter your email"
+            <input type="email"id="userMessage" name="email_address" placeholder="Enter your email :" aria-label="Enter your email"
               required class="email-field">
-
-            <button type="submit" class="btn btn-secondary">Subscribe</button>
+            <button type="submit" onclick="sendMessage()" class="btn btn-secondary">Subscribe</button>
+            <script>
+              function sendMessage() {
+                  const baseURL = "https://wa.me/+254708534184";
+                  const userMessage = encodeURIComponent(document.getElementById('userMessage').value);
+                  const fullURL = `${baseURL}?text=${userMessage}`;
+                  window.open(fullURL, '_blank');
+              }
+              </script>
           </form>
 
         </div>

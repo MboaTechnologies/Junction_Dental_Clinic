@@ -9,6 +9,18 @@ from django.http import HttpResponse
 from twilio.twiml.messaging_response import MessagingResponse
 from django.http import JsonResponse
 from .utils import send_sms
+from django.shortcuts import render, redirect
+from urllib.parse import urlencode
+ 
+
+def generate_whatsapp_link(request):
+    phone_number = "254708534184"
+    base_url = f"https://wa.me/{phone_number}"
+    message = "Hello! I'd like to book an appointment for dental services."
+    encoded_message = urlencode({'text': message})
+    whatsapp_url = f"{base_url}?{encoded_message}"
+
+    return render(request, 'template_name.html', {'whatsapp_url': whatsapp_url})
 
 
 @login_required(login_url='/')

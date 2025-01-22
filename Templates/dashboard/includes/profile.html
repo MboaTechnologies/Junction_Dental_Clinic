@@ -23,10 +23,10 @@
           <div class="col-auto my-auto">
             <div class="h-100">
               <h5 class="mb-1">
-                Abel Omondi
+                {{user.first_name}} {{user.last_name}}
               </h5>
               <p class="mb-0 font-weight-bold text-sm">
-               Mboa Technologies
+                {{user.mobile_number}}
               </p>
             </div>
           </div>
@@ -136,7 +136,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" style="margin-top: 10vh;">
           <div class="card card-profile">
             <img src="{% static 'user_profile/images/hero-bg.jpg' %}" alt="Image placeholder" class="card-img-top">
             <div class="row justify-content-center">

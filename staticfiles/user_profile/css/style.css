@@ -349,6 +349,9 @@ body {
 
 .hero-form-wrapper {
   background-color: var(--white);
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
   margin-block-start: -100px;
   width:100%;
   margin-inline: auto;
@@ -380,9 +383,17 @@ body {
 }
 
 .hero-form {
-  display: grid;
-  gap: 25px;
+  display: flex;
+  gap: 20px;
   padding: 25px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
 }
 
 .hero-form .input-wrapper { position: relative; }
@@ -422,8 +433,19 @@ body {
 .hero-form .btn { max-width: 100%; }
 
 
+.col-12.col-sm-6 {
+  flex: 1 1 48%; /* Each column takes 48% width */
+  min-width: 200px;
+}
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
 
-
+  .col-12.col-sm-6 {
+    flex: 1 1 100%; /* Full width on small screens */
+  }
+}
 
 /*-----------------------------------*\
   #ABOUT

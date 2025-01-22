@@ -9,10 +9,12 @@ from datetime import datetime
 from Dashboard.models import DoctorReg
 from Accounts.models import User
 from django.core.mail import send_mail
-from .utils import send_sms
-from .utils import send_sms_via_email
+from .utils import send_sms,send_sms_via_email
 import africastalking
 from decouple import config
+from django.core.mail import send_mail
+from datetime import datetime
+
 
 
 # def create_appointment(request):
@@ -99,7 +101,7 @@ def User_Search_Appointments(request):
             else:
                 print("No Record Found")
                 context = {'page': page}
-                return render(request, 'appointment/userbase.html ', context)
+                return render(request, 'appointment/userbase.html', context)
 
         # If the request method is not GET
         context = {'page': page}
@@ -167,6 +169,8 @@ def AppointmentHistoryList(request, id):
                }
     return render(request, 'dashboard/includes/doctor_appointment_list_details.html', context)
 
+
+
 def create_appointment(request):
     doctorview = DoctorReg.objects.all()
     worry = Specialization.objects.all()
@@ -183,25 +187,23 @@ def create_appointment(request):
         worry_id = request.POST.get('worry_need')
         additional_msg = request.POST.get('additional_msg')
 
-        # Retrieve the DoctorReg instance using the doctor_id
+        # Retrieve the DoctorReg and Specialization instances
         doc_instance = DoctorReg.objects.get(id=doctor_id)
         worry_instance = Specialization.objects.get(id=worry_id)
 
-        # Validate that date_of_appointment is greater than today's date
+        # Validate the appointment date
         try:
             appointment_date = datetime.strptime(date_of_appointment, '%Y-%m-%d').date()
             today_date = datetime.now().date()
 
             if appointment_date <= today_date:
-                # If the appointment date is not in the future, display an error message
-                messages.error(request, "Please select a date in the future for your appointment")
-                return redirect('appointment')  # Redirect back to the appointment page
+                messages.error(request, "Please select a date in the future for your appointment.")
+                return redirect('appointment')
         except ValueError:
-            # Handle invalid date format error
-            messages.error(request, "Invalid date format")
-            return redirect('appointment')  # Redirect back to the appointment page
+            messages.error(request, "Invalid date format.")
+            return redirect('appointment')
 
-        # Create a new Appointment instance with the provided data
+        # Create appointment
         appointment_details = Appointment.objects.create(
             appointment_number=appointment_number,
             fullname=full_name,
@@ -213,10 +215,10 @@ def create_appointment(request):
             worry_id=worry_instance,
             additional_msg=additional_msg
         )
+
+        # Send SMS and email notifications
         try:
-            # Check if the user account exists
-            if User.objects.filter(email=email).exists() and User.objects.filter(mobile_number=mobile_number).exists():
-                sms_message = (
+            sms_message = (
                 f"Hello {full_name},\n"
                 f"Your appointment has been confirmed.\n"
                 f"Appointment Number: {appointment_number}\n"
@@ -226,61 +228,52 @@ def create_appointment(request):
                 f"Concern: {worry_instance}\n"
                 f"Thank you for choosing us!"
             )
-                send_sms(mobile_number, sms_message)
-            messages.success(request, f' Appointment confirmed and SMS sent. Account exists with email {email}. Kindly log in to your account.')
-            context = {'doctorview': doctorview, 'appointment_details': appointment_details, 'page': page}
-            return render(request, 'accounts/includes/appointment_success.html', context)
-                
-        except Exception as e:
-            messages.error(request, f"Appointment confirmed but failed to send SMS: {str(e)}")
-            return redirect('register')  # Redirect back to the registration page
+            send_sms(mobile_number, sms_message)  # Assuming send_sms is implemented correctly
 
-        # Send confirmation email
-        subject = "Appointment Confirmation"
-        message = (
-            f"Dear {full_name},\n\n"
-            f"Thank you for scheduling an appointment with us.\n"
-            f"Appointment Details:\n"
-            f"Appointment Number: {appointment_number}\n"
-            f"Date: {date_of_appointment}\n"
-            f"Time: {time_of_appointment}\n"
-            f"Doctor: {doc_instance}\n"
-            f"Concern: {worry_instance}\n\n"
-            f"We look forward to serving you.\n\n"
-            f"Best regards,\n"
-            f"Junction Dental Clinic"
-        )
-        try:
+            subject = "Appointment Confirmation"
+            message = (
+                f"Dear {full_name},\n\n"
+                f"Thank you for scheduling an appointment with us.\n\n"
+                f"Appointment Details:\n"
+                f"Appointment Number: {appointment_number}\n"
+                f"Date: {date_of_appointment}\n"
+                f"Time: {time_of_appointment}\n"
+                f"Doctor: {doc_instance}\n"
+                f"Concern: {worry_instance}\n\n"
+                f"We look forward to serving you.\n\n"
+                f"Best regards,\n"
+                f"Junction Dental Clinic"
+            )
             send_mail(
                 subject,
                 message,
-                'Mboaacademy@gmail.com.com',  # Replace with your email
-                [email],  # Recipient email
+                '{email}',  # Replace with your clinic's email
+                [email, 'mboatechnologies@gmail.com'],  # Recipients
                 fail_silently=False,
             )
-            messages.success(request, "Your appointment request has been sent. A confirmation email has been sent to your email address.")
+            messages.success(request, "Appointment confirmed. Notifications sent successfully.")
         except Exception as e:
-            messages.error(request, f"Appointment request sent, but failed to send confirmation email: {str(e)}")
+            messages.error(request, f"Failed to send notifications: {str(e)}")
 
-        # Save appointment details
-        appointment_details.save()
-        return redirect('register')  # Redirect back to the registration page
+        return redirect('appointment_success')  # Redirect to a success page
 
     context = {'doctorview': doctorview, 'worry': worry, 'page': page}
     return render(request, 'user_profile/includes/appointment_form.html', context)
 
 
+def send_sms(phone_number, message):
+    try:
+        username = 'Junction_Dental'
+        api_key = 'your_api_key_here'  # Replace with environment variable
+        africastalking.initialize(username, api_key)
+        sms = africastalking.SMS
+        sms.send(message, [phone_number])
+    except Exception as e:
+        raise Exception(f"SMS sending failed: {str(e)}")
 
-# Initialize SDK
-# username = config("API_USERNAME", default="sandbox")
-# api_key = config("API_KEY",default="test_api_key")
-# africastalking.initialize(username, api_key)
 
-def african_talking_sms(request):
-    username = 'Junction_Dental'
-    api_key = 'atsk_b01b9fd8dee78206cc4681fad067690fe9faf1e06d2f68bb0a916adea1235a32868bc2ca'
-    africastalking.initialize(username, api_key)
-    sms = africastalking.SMS
-    response = sms.send("Hello Message!", ["+254708534184"])
-    return render(request, 'user_profile/includes/appointment_form.html', response)
- 
+def appointment_success(request):
+    page = Page.objects.all()
+    appointment_details = Appointment.objects.get()
+    context = {"page": page,'appointment_details': appointment_details,}
+    return render(request, 'accounts/includes/appointment_success.html', context)
