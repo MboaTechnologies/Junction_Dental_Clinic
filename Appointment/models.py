@@ -5,8 +5,9 @@ from Accounts.constants import *
 from doctors.models import DoctorReg
 
 
-class Appointment(models.Model):
 
+
+class Appointment(models.Model):
     appointment_number = models.IntegerField(default=0, null='TRUE')
     appointee = models.ForeignKey(User, on_delete=models.CASCADE, related_name='patients', null=True, blank=False)
     fullname = models.CharField(max_length=250)
@@ -28,4 +29,4 @@ class Appointment(models.Model):
 
     def __str__(self):
         return f"Appointment #{self.appointment_number} - {self.fullname}"
-
+    

@@ -256,7 +256,7 @@ def create_appointment(request):
         except Exception as e:
             messages.error(request, f"Failed to send notifications: {str(e)}")
 
-        return render(request,'accounts/include/appointment_success.html',context)  # Redirect to a success page
+        return render(request,'accounts/includes/appointment_success.html',context)  # Redirect to a success page
 
     context = {'doctorview': doctorview, 'worry': worry, 'page': page}
     return render(request, 'user_profile/includes/appointment_form.html', context)

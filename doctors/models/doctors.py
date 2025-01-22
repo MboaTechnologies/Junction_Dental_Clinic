@@ -69,7 +69,7 @@ class DoctorReg(models.Model):
     clinic_code = models.CharField(max_length=8)
     clinic_name = models.CharField(max_length=8)
     mobile_number = models.CharField(max_length=11)
-    other_specializations_id = models.ManyToManyField(Specialization,)
+    specializations = models.ManyToManyField(Specialization,)
     reg_date_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

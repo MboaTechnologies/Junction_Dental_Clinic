@@ -9,8 +9,9 @@ from .models import (
     Wednesday,
     Thursday,
     Friday,
+    DoctorReg
 )
-
+admin.site.register(DoctorReg)
 admin.site.register(Education)
 admin.site.register(Experience)
 admin.site.register(TimeRange)

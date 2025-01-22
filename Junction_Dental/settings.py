@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'sendsms',
     'africastalking',
+    'phonenumber_field',
 
     'Accounts',
     'channels',
