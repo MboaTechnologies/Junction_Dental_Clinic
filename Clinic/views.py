@@ -9,7 +9,7 @@ from django.http import HttpResponse
 from twilio.twiml.messaging_response import MessagingResponse
 from django.http import JsonResponse
 from .utils import send_sms
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from urllib.parse import urlencode
  
 

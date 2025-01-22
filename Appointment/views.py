@@ -12,6 +12,9 @@ from django.core.mail import send_mail
 from .utils import send_sms,send_sms_via_email
 import africastalking
 from decouple import config
+from django.core.mail import send_mail
+from datetime import datetime
+
 
 
 # def create_appointment(request):
@@ -166,11 +169,6 @@ def AppointmentHistoryList(request, id):
                }
     return render(request, 'dashboard/includes/doctor_appointment_list_details.html', context)
 
-from django.core.mail import send_mail
-from django.contrib import messages
-from datetime import datetime
-import random
-import africastalking
 
 
 def create_appointment(request):
@@ -272,3 +270,11 @@ def send_sms(phone_number, message):
         sms.send(message, [phone_number])
     except Exception as e:
         raise Exception(f"SMS sending failed: {str(e)}")
+
+
+def appointment_success(request):
+    page = Page.objects.all()
+    context = {"page": page,
+
+               }
+    return render(request, 'accounts/includes/appointment_success.html', context)
