@@ -1289,3 +1289,1173 @@ Traceback (most recent call last):
          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 IsADirectoryError: [Errno 21] Is a directory: '/workspaces/Junction_Dental_Clinic/Templates'
 "POST /Booking/User_Appointment/ HTTP/1.1" 500 136722
+Internal Server Error: /admin/bookings/booking/add/
+Traceback (most recent call last):
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1961, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1887, in _changeform_view
+    form = ModelForm(initial=initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 390, in __init__
+    apply_limit_choices_to_to_formfield(formfield)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 136, in apply_limit_choices_to_to_formfield
+    Exists(formfield.queryset.model._base_manager.filter(complex_filter)),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1468, in build_filter
+    return self._add_q(
+           ^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1768, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'role' into field. Choices are: appointments, date_joined, doctor_reviews, doctorreg, educations, email, emailaddress, experiences, first_name, friday, gender, groups, has_next_of_kin, id, is_Doctor, is_Member_Patient, is_active, is_staff, is_superuser, last_login, last_name, logentry, member_code, mobile_number, monday, next_of_kin, next_of_kin_id, nextofkin, password, patient_appointments, patient_id, patient_reviews, patient_type, patients, prescriptions_given, prescriptions_received, profile_photo, registered, saturday, socialaccount, specialization, specialties, sunday, thursday, tuesday, user_permissions, username, wednesday
+"GET /admin/bookings/booking/add/ HTTP/1.1" 500 209281
+Internal Server Error: /admin/bookings/booking/add/
+Traceback (most recent call last):
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1961, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1887, in _changeform_view
+    form = ModelForm(initial=initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 390, in __init__
+    apply_limit_choices_to_to_formfield(formfield)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 136, in apply_limit_choices_to_to_formfield
+    Exists(formfield.queryset.model._base_manager.filter(complex_filter)),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1468, in build_filter
+    return self._add_q(
+           ^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1768, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'role' into field. Choices are: appointments, date_joined, doctor_reviews, doctorreg, educations, email, emailaddress, experiences, first_name, friday, gender, groups, has_next_of_kin, id, is_Doctor, is_Member_Patient, is_active, is_staff, is_superuser, last_login, last_name, logentry, member_code, mobile_number, monday, next_of_kin, next_of_kin_id, nextofkin, password, patient_appointments, patient_id, patient_reviews, patient_type, patients, prescriptions_given, prescriptions_received, profile_photo, registered, saturday, socialaccount, specialization, specialties, sunday, thursday, tuesday, user_permissions, username, wednesday
+"GET /admin/bookings/booking/add/ HTTP/1.1" 500 208866
+Internal Server Error: /admin/bookings/booking/add/
+Traceback (most recent call last):
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1961, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1887, in _changeform_view
+    form = ModelForm(initial=initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 390, in __init__
+    apply_limit_choices_to_to_formfield(formfield)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 136, in apply_limit_choices_to_to_formfield
+    Exists(formfield.queryset.model._base_manager.filter(complex_filter)),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1468, in build_filter
+    return self._add_q(
+           ^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1768, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'role' into field. Choices are: appointments, date_joined, doctor_reviews, doctorreg, educations, email, emailaddress, experiences, first_name, friday, gender, groups, has_next_of_kin, id, is_Doctor, is_Member_Patient, is_active, is_staff, is_superuser, last_login, last_name, logentry, member_code, mobile_number, monday, next_of_kin, next_of_kin_id, nextofkin, password, patient_appointments, patient_id, patient_reviews, patient_type, patients, prescriptions_given, prescriptions_received, profile_photo, registered, saturday, socialaccount, specialization, specialties, sunday, thursday, tuesday, user_permissions, username, wednesday
+"GET /admin/bookings/booking/add/ HTTP/1.1" 500 209003
+Internal Server Error: /admin/bookings/booking/add/
+Traceback (most recent call last):
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1961, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1887, in _changeform_view
+    form = ModelForm(initial=initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 390, in __init__
+    apply_limit_choices_to_to_formfield(formfield)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 136, in apply_limit_choices_to_to_formfield
+    Exists(formfield.queryset.model._base_manager.filter(complex_filter)),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1468, in build_filter
+    return self._add_q(
+           ^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1768, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'role' into field. Choices are: appointments, date_joined, doctor_reviews, doctorreg, educations, email, emailaddress, experiences, first_name, friday, gender, groups, has_next_of_kin, id, is_Doctor, is_Member_Patient, is_active, is_staff, is_superuser, last_login, last_name, logentry, member_code, mobile_number, monday, next_of_kin, next_of_kin_id, nextofkin, password, patient_appointments, patient_id, patient_reviews, patient_type, patients, prescriptions_given, prescriptions_received, profile_photo, registered, saturday, socialaccount, specialization, specialties, sunday, thursday, tuesday, user_permissions, username, wednesday
+"GET /admin/bookings/booking/add/ HTTP/1.1" 500 209003
+Internal Server Error: /admin/bookings/booking/add/
+Traceback (most recent call last):
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1961, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1887, in _changeform_view
+    form = ModelForm(initial=initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 390, in __init__
+    apply_limit_choices_to_to_formfield(formfield)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 136, in apply_limit_choices_to_to_formfield
+    Exists(formfield.queryset.model._base_manager.filter(complex_filter)),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1468, in build_filter
+    return self._add_q(
+           ^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1768, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'role' into field. Choices are: appointments, date_joined, doctor_reviews, doctorreg, educations, email, emailaddress, experiences, first_name, friday, gender, groups, has_next_of_kin, id, is_Doctor, is_Member_Patient, is_active, is_staff, is_superuser, last_login, last_name, logentry, member_code, mobile_number, monday, next_of_kin, next_of_kin_id, nextofkin, password, patient_appointments, patient_id, patient_reviews, patient_type, patients, prescriptions_given, prescriptions_received, profile_photo, registered, saturday, socialaccount, specialization, specialties, sunday, thursday, tuesday, user_permissions, username, wednesday
+"GET /admin/bookings/booking/add/ HTTP/1.1" 500 208866
+Internal Server Error: /admin/bookings/booking/add/
+Traceback (most recent call last):
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1961, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1887, in _changeform_view
+    form = ModelForm(initial=initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 390, in __init__
+    apply_limit_choices_to_to_formfield(formfield)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 136, in apply_limit_choices_to_to_formfield
+    Exists(formfield.queryset.model._base_manager.filter(complex_filter)),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1468, in build_filter
+    return self._add_q(
+           ^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1768, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'role' into field. Choices are: appointments, date_joined, doctor_reviews, doctorreg, educations, email, emailaddress, experiences, first_name, friday, gender, groups, has_next_of_kin, id, is_Doctor, is_Member_Patient, is_active, is_staff, is_superuser, last_login, last_name, logentry, member_code, mobile_number, monday, next_of_kin, next_of_kin_id, nextofkin, password, patient_appointments, patient_id, patient_reviews, patient_type, patients, prescriptions_given, prescriptions_received, profile_photo, registered, saturday, socialaccount, specialization, specialties, sunday, thursday, tuesday, user_permissions, username, wednesday
+"GET /admin/bookings/booking/add/ HTTP/1.1" 500 208876
+Internal Server Error: /admin/bookings/booking/add/
+Traceback (most recent call last):
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1961, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1887, in _changeform_view
+    form = ModelForm(initial=initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 390, in __init__
+    apply_limit_choices_to_to_formfield(formfield)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 136, in apply_limit_choices_to_to_formfield
+    Exists(formfield.queryset.model._base_manager.filter(complex_filter)),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1468, in build_filter
+    return self._add_q(
+           ^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1768, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'role' into field. Choices are: appointments, date_joined, doctor_reviews, doctorreg, educations, email, emailaddress, experiences, first_name, friday, gender, groups, has_next_of_kin, id, is_Doctor, is_Member_Patient, is_active, is_staff, is_superuser, last_login, last_name, logentry, member_code, mobile_number, monday, next_of_kin, next_of_kin_id, nextofkin, password, patient_appointments, patient_id, patient_reviews, patient_type, patients, prescriptions_given, prescriptions_received, profile_photo, registered, saturday, socialaccount, specialization, specialties, sunday, thursday, tuesday, user_permissions, username, wednesday
+"GET /admin/bookings/booking/add/ HTTP/1.1" 500 208876
+Internal Server Error: /admin/bookings/booking/add/
+Traceback (most recent call last):
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1961, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1887, in _changeform_view
+    form = ModelForm(initial=initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 390, in __init__
+    apply_limit_choices_to_to_formfield(formfield)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 136, in apply_limit_choices_to_to_formfield
+    Exists(formfield.queryset.model._base_manager.filter(complex_filter)),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1468, in build_filter
+    return self._add_q(
+           ^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1768, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'role' into field. Choices are: appointments, date_joined, doctor_reviews, doctorreg, educations, email, emailaddress, experiences, first_name, friday, gender, groups, has_next_of_kin, id, is_Doctor, is_Member_Patient, is_active, is_staff, is_superuser, last_login, last_name, logentry, member_code, mobile_number, monday, next_of_kin, next_of_kin_id, nextofkin, password, patient_appointments, patient_id, patient_reviews, patient_type, patients, prescriptions_given, prescriptions_received, profile_photo, registered, saturday, socialaccount, specialization, specialties, sunday, thursday, tuesday, user_permissions, username, wednesday
+"GET /admin/bookings/booking/add/ HTTP/1.1" 500 208876
+Internal Server Error: /admin/bookings/booking/add/
+Traceback (most recent call last):
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1961, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1887, in _changeform_view
+    form = ModelForm(initial=initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 390, in __init__
+    apply_limit_choices_to_to_formfield(formfield)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 136, in apply_limit_choices_to_to_formfield
+    Exists(formfield.queryset.model._base_manager.filter(complex_filter)),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1468, in build_filter
+    return self._add_q(
+           ^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1768, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'role' into field. Choices are: appointments, date_joined, doctor_reviews, doctorreg, educations, email, emailaddress, experiences, first_name, friday, gender, groups, has_next_of_kin, id, is_Doctor, is_Member_Patient, is_active, is_staff, is_superuser, last_login, last_name, logentry, member_code, mobile_number, monday, next_of_kin, next_of_kin_id, nextofkin, password, patient_appointments, patient_id, patient_reviews, patient_type, patients, prescriptions_given, prescriptions_received, profile_photo, registered, saturday, socialaccount, specialization, specialties, sunday, thursday, tuesday, user_permissions, username, wednesday
+"GET /admin/bookings/booking/add/ HTTP/1.1" 500 208807
+Internal Server Error: /admin/bookings/booking/add/
+Traceback (most recent call last):
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1961, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1887, in _changeform_view
+    form = ModelForm(initial=initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 390, in __init__
+    apply_limit_choices_to_to_formfield(formfield)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 136, in apply_limit_choices_to_to_formfield
+    Exists(formfield.queryset.model._base_manager.filter(complex_filter)),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1468, in build_filter
+    return self._add_q(
+           ^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1768, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'role' into field. Choices are: appointments, date_joined, doctor_reviews, doctorreg, educations, email, emailaddress, experiences, first_name, friday, gender, groups, has_next_of_kin, id, is_Doctor, is_Member_Patient, is_active, is_staff, is_superuser, last_login, last_name, logentry, member_code, mobile_number, monday, next_of_kin, next_of_kin_id, nextofkin, password, patient_appointments, patient_id, patient_reviews, patient_type, patients, prescriptions_given, prescriptions_received, profile_photo, registered, saturday, socialaccount, specialization, specialties, sunday, thursday, tuesday, user_permissions, username, wednesday
+"GET /admin/bookings/booking/add/ HTTP/1.1" 500 208877
+Internal Server Error: /admin/bookings/booking/add/
+Traceback (most recent call last):
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1961, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1887, in _changeform_view
+    form = ModelForm(initial=initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 390, in __init__
+    apply_limit_choices_to_to_formfield(formfield)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 136, in apply_limit_choices_to_to_formfield
+    Exists(formfield.queryset.model._base_manager.filter(complex_filter)),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1468, in build_filter
+    return self._add_q(
+           ^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1768, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'role' into field. Choices are: appointments, date_joined, doctor_reviews, doctorreg, educations, email, emailaddress, experiences, first_name, friday, gender, groups, has_next_of_kin, id, is_Doctor, is_Member_Patient, is_active, is_staff, is_superuser, last_login, last_name, logentry, member_code, mobile_number, monday, next_of_kin, next_of_kin_id, nextofkin, password, patient_appointments, patient_id, patient_reviews, patient_type, patients, prescriptions_given, prescriptions_received, profile_photo, registered, saturday, socialaccount, specialization, specialties, sunday, thursday, tuesday, user_permissions, username, wednesday
+"GET /admin/bookings/booking/add/ HTTP/1.1" 500 208876
+Internal Server Error: /admin/bookings/booking/add/
+Traceback (most recent call last):
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1961, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1887, in _changeform_view
+    form = ModelForm(initial=initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 390, in __init__
+    apply_limit_choices_to_to_formfield(formfield)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 136, in apply_limit_choices_to_to_formfield
+    Exists(formfield.queryset.model._base_manager.filter(complex_filter)),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1468, in build_filter
+    return self._add_q(
+           ^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1768, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'role' into field. Choices are: appointments, date_joined, doctor_reviews, doctorreg, educations, email, emailaddress, experiences, first_name, friday, gender, groups, has_next_of_kin, id, is_Doctor, is_Member_Patient, is_active, is_staff, is_superuser, last_login, last_name, logentry, member_code, mobile_number, monday, next_of_kin, next_of_kin_id, nextofkin, password, patient_appointments, patient_id, patient_reviews, patient_type, patients, prescriptions_given, prescriptions_received, profile_photo, registered, saturday, socialaccount, specialization, specialties, sunday, thursday, tuesday, user_permissions, username, wednesday
+"GET /admin/bookings/booking/add/ HTTP/1.1" 500 209008
+Internal Server Error: /admin/bookings/booking/add/
+Traceback (most recent call last):
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1961, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1887, in _changeform_view
+    form = ModelForm(initial=initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 390, in __init__
+    apply_limit_choices_to_to_formfield(formfield)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 136, in apply_limit_choices_to_to_formfield
+    Exists(formfield.queryset.model._base_manager.filter(complex_filter)),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1468, in build_filter
+    return self._add_q(
+           ^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1768, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'role' into field. Choices are: appointments, date_joined, doctor_reviews, doctorreg, educations, email, emailaddress, experiences, first_name, friday, gender, groups, has_next_of_kin, id, is_Doctor, is_Member_Patient, is_active, is_staff, is_superuser, last_login, last_name, logentry, member_code, mobile_number, monday, next_of_kin, next_of_kin_id, nextofkin, password, patient_appointments, patient_id, patient_reviews, patient_type, patients, prescriptions_given, prescriptions_received, profile_photo, registered, saturday, socialaccount, specialization, specialties, sunday, thursday, tuesday, user_permissions, username, wednesday
+"GET /admin/bookings/booking/add/ HTTP/1.1" 500 209008
+Internal Server Error: /admin/bookings/booking/add/
+Traceback (most recent call last):
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1961, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1887, in _changeform_view
+    form = ModelForm(initial=initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 390, in __init__
+    apply_limit_choices_to_to_formfield(formfield)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 136, in apply_limit_choices_to_to_formfield
+    Exists(formfield.queryset.model._base_manager.filter(complex_filter)),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1468, in build_filter
+    return self._add_q(
+           ^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1768, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'role' into field. Choices are: appointments, date_joined, doctor_reviews, doctorreg, educations, email, emailaddress, experiences, first_name, friday, gender, groups, has_next_of_kin, id, is_Doctor, is_Member_Patient, is_active, is_staff, is_superuser, last_login, last_name, logentry, member_code, mobile_number, monday, next_of_kin, next_of_kin_id, nextofkin, password, patient_appointments, patient_id, patient_reviews, patient_type, patients, prescriptions_given, prescriptions_received, profile_photo, registered, saturday, socialaccount, specialization, specialties, sunday, thursday, tuesday, user_permissions, username, wednesday
+"GET /admin/bookings/booking/add/ HTTP/1.1" 500 209009
+Internal Server Error: /admin/bookings/booking/add/
+Traceback (most recent call last):
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1961, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 1887, in _changeform_view
+    form = ModelForm(initial=initial)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 390, in __init__
+    apply_limit_choices_to_to_formfield(formfield)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/forms/models.py", line 136, in apply_limit_choices_to_to_formfield
+    Exists(formfield.queryset.model._base_manager.filter(complex_filter)),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1468, in build_filter
+    return self._add_q(
+           ^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Junction_Dental_Clinic/venv/lib/python3.12/site-packages/django/db/models/sql/query.py", line 1768, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'role' into field. Choices are: appointments, date_joined, doctor_reviews, doctorreg, educations, email, emailaddress, experiences, first_name, friday, gender, groups, has_next_of_kin, id, is_Doctor, is_Member_Patient, is_active, is_staff, is_superuser, last_login, last_name, logentry, member_code, mobile_number, monday, next_of_kin, next_of_kin_id, nextofkin, password, patient_appointments, patient_id, patient_reviews, patient_type, patients, prescriptions_given, prescriptions_received, profile_photo, registered, saturday, socialaccount, specialization, specialties, sunday, thursday, tuesday, user_permissions, username, wednesday
+"GET /admin/bookings/booking/add/ HTTP/1.1" 500 208867

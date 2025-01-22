@@ -2,7 +2,7 @@ from django.db import models
 from Clinic.models import Specialization
 from Accounts.models import User
 from Accounts.constants import *
-from Dashboard.models import DoctorReg
+from doctors.models import DoctorReg
 
 
 class Appointment(models.Model):

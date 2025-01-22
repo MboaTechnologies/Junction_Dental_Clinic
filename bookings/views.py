@@ -10,6 +10,7 @@ from Accounts.models import User
 from doctors.models.general import TimeRange
 from mixins.custom_mixins import PatientRequiredMixin
 from .models import Booking
+from doctors.models import DoctorReg
 
 
 class BookingView(LoginRequiredMixin, View):
@@ -120,7 +121,7 @@ class BookingCreateView(LoginRequiredMixin, View):
 
     def post(self, request, username):
         doctor = get_object_or_404(
-            User, username=username, role=User.RoleChoices.DOCTOR
+            DoctorReg, username=DoctorReg.member, specialization=DoctorReg.other_specializations_id
         )
 
         # Get form data
