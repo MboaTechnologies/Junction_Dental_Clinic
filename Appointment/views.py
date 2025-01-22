@@ -224,8 +224,10 @@ def create_appointment(request):
                 f"Doctor: {doc_instance}\n"
                 f"Concern: {worry_instance}\n"
                 f"Thank you for choosing us!"
-            )
-                send_sms(mobile_number, sms_message)
+                )
+                recipient_list = ['mboacodes@gmail.com','mboatechnologies@gmail.com'],
+            
+                send_sms(mobile_number, sms_message,recipient_list)
                 messages.success(request, f' Appointment confirmed and SMS sent. Account exists with email {email}. Kindly log in to your account.')
                 context = {'doctorview': doctorview, 'appointment_details': appointment_details, 'page': page}
                 return render(request, 'accounts/includes/appointment_success.html', context)
