@@ -100,7 +100,7 @@ class NextOfKin(models.Model):
     kin_mobile_number = models.CharField(max_length=13, blank=True, null=True, unique=False)
     registered = models.BooleanField(default=False)
     def __str__(self):
-        return f"{self.kin_fname} {self.kin_lname}"
+        return f"{self.kin_first_name} {self.kin_last_name}"
 
     class Meta:
         verbose_name = "Next of Kin"
