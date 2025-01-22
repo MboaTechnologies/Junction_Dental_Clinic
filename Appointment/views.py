@@ -225,7 +225,7 @@ def create_appointment(request):
                 f"Concern: {worry_instance}\n"
                 f"Thank you for choosing us!"
                 )
-                recipient_list = ['mboacodes@gmail.com','mboatechnologies@gmail.com'],
+                recipient_list = [{email},'mboatechnologies@gmail.com'],
             
                 send_sms(mobile_number, sms_message,recipient_list)
                 messages.success(request, f' Appointment confirmed and SMS sent. Account exists with email {email}. Kindly log in to your account.')
@@ -237,6 +237,7 @@ def create_appointment(request):
 
         # Send confirmation email
         subject = "Appointment Confirmation"
+        recipient_list = ['mboacodes@gmail.com','mboatechnologies@gmail.com'],
         message = (
             f"Dear {full_name},\n\n"
             f"Thank you for scheduling an appointment with us.\n"
@@ -251,7 +252,7 @@ def create_appointment(request):
             f"Junction Dental Clinic"
         )
         try:
-            send_mail(subject,message,'Mboaacademy@gmail.com.com',)
+            send_mail(subject,message,recipient_list,)
             send_sms(mobile_number, message)
             messages.success(request, "Your appointment request has been sent. A confirmation email has been sent to your email address.")
         except Exception as e:
