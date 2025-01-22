@@ -215,6 +215,7 @@ def create_appointment(request):
             worry_id=worry_instance,
             additional_msg=additional_msg
         )
+        context = {"page": page,'appointment_details': appointment_details,}
 
         # Send SMS and email notifications
         try:
@@ -255,7 +256,7 @@ def create_appointment(request):
         except Exception as e:
             messages.error(request, f"Failed to send notifications: {str(e)}")
 
-        return redirect('appointment_success')  # Redirect to a success page
+        return render(request,'accounts/include/appointment_success.html',context)  # Redirect to a success page
 
     context = {'doctorview': doctorview, 'worry': worry, 'page': page}
     return render(request, 'user_profile/includes/appointment_form.html', context)
@@ -273,7 +274,4 @@ def send_sms(phone_number, message):
 
 
 def appointment_success(request):
-    page = Page.objects.all()
-    appointment_details = Appointment.objects.get()
-    context = {"page": page,'appointment_details': appointment_details,}
-    return render(request, 'accounts/includes/appointment_success.html', context)
+    return render(request, 'accounts/includes/appointment_success.html',)

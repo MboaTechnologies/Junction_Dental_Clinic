@@ -207,7 +207,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CSRF_TRUSTED_ORIGINS = ['https://junction-dental.onrender.com',  'http://127.0.0.1:8000']
+CSRF_TRUSTED_ORIGINS = ['https://junction-dental.onrender.com', 'https://localhost:8000', 'http://127.0.0.1:8000']
 
 # SECURE_SSL_REDIRECT = True
 # SECURE_HSTS_SECONDS = 31536000

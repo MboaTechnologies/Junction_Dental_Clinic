@@ -39,9 +39,8 @@
   /**
    * typography
    */
+   --ff-spartan: 'League Spartan', sans-serif;
 
-  --ff-roboto: "Roboto", sans-serif;
-  --ff-poppins: "Poppins", sans-serif;
 
   --fs-1: 4rem;
   --fs-2: 3.6rem;

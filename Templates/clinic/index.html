@@ -18,7 +18,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-
   <!-- 
     - custom css link
   -->
@@ -39,7 +38,7 @@
 
 {% block body %}
 <body id="top">
-                 {% include 'clinic/includes/messages.html' %}
+                 
         {% endblock %}
         {% block footer_extra %}{% endblock %}
   <!-- - #HEADER-->
@@ -47,6 +46,7 @@
 
   <main>
     <article>
+      {% include 'clinic/includes/messages.html' %}
       <!-- - #HERO-->
     {% include 'clinic/includes/hero.html' %}
       <!-- - #SERVICE-->
