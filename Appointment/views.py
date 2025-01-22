@@ -274,7 +274,6 @@ def send_sms(phone_number, message):
 
 def appointment_success(request):
     page = Page.objects.all()
-    context = {"page": page,
-
-               }
+    appointment_details = Appointment.objects.get()
+    context = {"page": page,'appointment_details': appointment_details,}
     return render(request, 'accounts/includes/appointment_success.html', context)
