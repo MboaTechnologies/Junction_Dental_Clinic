@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
-from .forms import UserProfileUpdateForm, RegistrationForm, LoginForm, UserPasswordResetForm, UserSetPasswordForm, \
+from ..forms import UserProfileUpdateForm, RegistrationForm, LoginForm, UserPasswordResetForm, UserSetPasswordForm, \
     UserPasswordChangeForm
 from django.contrib.auth.views import LoginView, PasswordResetView, PasswordResetConfirmView, PasswordChangeView
 from django.contrib.auth import logout
-from .models import User
+from ..models import User
 from Clinic.models import Page
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -119,47 +119,3 @@ def profile_Update_shit(request):
                 messages.error(request, "Your profile updation has been failed")
                 return render(request, 'user_profile/includes/user_profile_update.html')
         return render(request, 'user_profile/includes/user_profile_update.html', context)
-
-
-@login_required(login_url='/accounts/login')
-def profile_Update(request):
-    member_profile = User.objects.all()
-    form = UserProfileUpdateForm()
-    if request.method == 'POST':
-        profile_photo = member_profile.profile_photo
-        first_name = member_profile.first_name
-        second_name = member_profile.last_name
-        specialization = member_profile.specialization
-        is_Doctor = member_profile.is_Doctor
-        next_of_kin = member_profile.next_of_kin
-        has_next_of_kin = member_profile.has_next_of_kin
-        is_Member_Patient = member_profile.is_Member_Patient
-        email = member_profile.email
-        username = member_profile.username
-        patient_type = member_profile.patient_type
-        patient_id = member_profile.patient_id
-        member_code = member_profile.member_code
-        gender = member_profile.gender
-        mobile_number = member_profile.mobile_number
-        registered = member_profile.registered
-
-        member_profile.profile_photo = profile_photo
-        member_profile.first_name = first_name
-        member_profile.second_name = second_name
-        member_profile.specialization = specialization
-        member_profile.registered = registered
-        member_profile.mobile_number = mobile_number
-        member_profile.member_code = member_code
-        member_profile.gender = gender
-        member_profile.patient_type = patient_type
-        member_profile.patient_id = patient_id
-        member_profile.is_Doctor = is_Doctor
-        member_profile.next_of_kin = next_of_kin
-        member_profile.has_next_of_kin = has_next_of_kin
-        member_profile.is_Member_Patient = is_Member_Patient
-        member_profile.email = email
-        member_profile.username = username
-        member_profile.save()
-        return render(request, 'user_profile/includes/profile.html')
-
-    return render(request, 'user_profile/includes/user_profile_update.html', {'form': form})
