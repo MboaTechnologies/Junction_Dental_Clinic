@@ -1,10 +1,9 @@
 from django.db import models
 from django.conf import settings
 from ckeditor.fields import RichTextField
-from Accounts.models import User
+from Accounts.models import User,DoctorReg
 from Appointment.models import Appointment
 
-from doctors.models import DoctorReg
 
 
 class Booking(models.Model):
@@ -12,11 +11,13 @@ class Booking(models.Model):
         ,
         on_delete=models.CASCADE,
         related_name="appointments",
+        limit_choices_to={"role": "doctor"},
     )
     patient = models.ForeignKey(
         Appointment,
         on_delete=models.CASCADE,
         related_name="patient_appointments",
+        limit_choices_to={"role": "patient"},
     )
     appointment_date = models.DateField()
     appointment_time = models.TimeField()

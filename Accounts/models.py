@@ -10,6 +10,7 @@ import random
 from django.conf import settings
 from django.urls import reverse
 from phonenumber_field.modelfields import PhoneNumberField
+from Clinic.models import Specialization
 
 
 def generate_service_id():
@@ -24,6 +25,7 @@ class User(AbstractUser):
     class RoleChoices(models.TextChoices):
         DOCTOR = "doctor", "Doctor"
         PATIENT = "patient", "Patient"
+        STAFF = "Staff","Staff"
 
     role = models.CharField(
         choices=RoleChoices.choices,
@@ -39,7 +41,6 @@ class User(AbstractUser):
     next_of_kin = models.ForeignKey('NextOfKin', on_delete=models.CASCADE, blank=True, null=True)
     specialization = models.CharField(max_length=19, blank=True, choices=SPECIALIZATION_CHOICES,)
     profile_photo = models.ImageField(upload_to='profile_photos/', null=False, default='icon/bondijunction_dentalclinic_logo-300x258.jpg', blank=False)
-    patient_type = models.CharField(max_length=50, null=True, choices=PATIENT_TYPE_CHOICES)
     patient_id = models.CharField(max_length=15, unique=True, blank=True, null=True)
     member_code = models.CharField(default=generate_service_id, max_length=6, unique=True)
     mobile_number = PhoneNumberField(max_length=13, blank=True, null=True, unique=True)
@@ -64,6 +65,28 @@ class User(AbstractUser):
         return reverse(
             "doctors:doctor-profile", kwargs={"username": self.username}
         )
+    @property
+    def rating(self):
+        # Implement your rating logic here
+        return 4  # Default value
+
+    @property
+    def average_rating(self):
+        return (
+            self.reviews_received.aggregate(Avg("rating"))["rating__avg"] or 0
+        )
+
+    @property
+    def rating_count(self):
+        return self.reviews_received.count()
+
+    @property
+    def rating_distribution(self):
+        distribution = {i: 0 for i in range(1, 6)}
+        for rating in self.reviews_received.values_list("rating", flat=True):
+            distribution[rating] += 1
+        return distribution
+
 
     def set_last_login(self):
         self.last_login = timezone.now()
@@ -148,6 +171,19 @@ class Profile(models.Model):
             else "{}defaults/user.png".format(settings.MEDIA_URL)
         )
 
+class DoctorReg(models.Model):
+    doctor = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
+    clinic_code = models.CharField(max_length=8)
+    clinic_name = models.CharField(max_length=8)
+    specializations = models.ManyToManyField(Specialization,)
+    reg_date_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        if self.member:
+            return f"{self.doctor.first_name} {self.doctor.last_name} - {self.mobile_number}"
+        else:
+            return f"User not associated - {self.mobile_number}"
 
 
 

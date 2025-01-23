@@ -22,7 +22,7 @@ from .views import (
 app_name = "doctors"
 
 urlpatterns = [
-    path("", DoctorsListView.as_view(), name="list"),
+    path("list", DoctorsListView.as_view(), name="list"),
     path("dashboard/", DoctorDashboardView.as_view(), name="dashboard"),
     path("schedule-timings/", schedule_timings, name="schedule-timings"),
     path(

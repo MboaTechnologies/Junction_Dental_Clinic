@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import User, NextOfKin, OTP
+from .models import User, NextOfKin, OTP, DoctorReg
 # Create a custom user admin class
 admin.site.register(User)
 
@@ -60,3 +60,5 @@ class OTPAdmin(admin.ModelAdmin):
     list_filter = ('otp_code', 'otp_verified', 'otp_created', 'for_email',)
     search_fields = ('otp_code', 'otp_verified', 'otp_created', 'for_email')
     readonly_fields = ('otp_code', 'otp_created', 'otp_verified', 'for_email')
+
+admin.site.register(DoctorReg)

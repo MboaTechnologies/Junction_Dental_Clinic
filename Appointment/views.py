@@ -6,7 +6,7 @@ from Clinic.models import Page, Specialization
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from datetime import datetime
-from doctors.models import DoctorReg
+from Accounts.models import DoctorReg
 from Accounts.models import User
 from django.core.mail import send_mail
 from .utils import send_sms,send_sms_via_email

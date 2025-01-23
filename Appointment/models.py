@@ -1,8 +1,8 @@
 from django.db import models
 from Clinic.models import Specialization
-from Accounts.models import User
+from Accounts.models import User,DoctorReg
 from Accounts.constants import *
-from doctors.models import DoctorReg
+
 
 
 

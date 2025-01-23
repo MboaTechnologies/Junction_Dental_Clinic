@@ -41,7 +41,7 @@ from doctors.serializers import (
 )
 from mixins.custom_mixins import DoctorRequiredMixin
 from utils.htmx import render_toast_message_for_api
-from Accounts.models import User
+from Accounts.models import User,DoctorReg
 
 days = {
     0: Sunday,
@@ -658,9 +658,7 @@ class PrescriptionDetailView(DoctorRequiredMixin, DetailView):
 
     def get_queryset(self):
         # Only allow doctors to view prescriptions they wrote
-        return Prescription.objects.filter(
-            doctor=self.request.user
-        ).select_related(
+        return Prescription.objects.filter(doctor=self.request.user).select_related(
             "doctor",
             "doctor__profile",
             "patient",

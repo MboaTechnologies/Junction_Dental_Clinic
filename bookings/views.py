@@ -10,11 +10,11 @@ from Accounts.models import User
 from doctors.models.general import TimeRange
 from mixins.custom_mixins import PatientRequiredMixin
 from .models import Booking
-from doctors.models import DoctorReg
+from Accounts.models import DoctorReg
 
 
 class BookingView(LoginRequiredMixin, View):
-    template_name = "bookings/booking.html"
+    template_name = "bookings/includes/booking.html"
 
     def get_week_dates(self):
         """Get the next 7 days starting from today"""
@@ -114,7 +114,7 @@ class BookingView(LoginRequiredMixin, View):
 
 
 class BookingCreateView(LoginRequiredMixin, View):
-    template_name = "bookings/booking.html"
+    template_name = "bookings/includes/booking.html"
 
     def get(self, request: HttpRequest, *args, **kwargs):
         return render(request, self.template_name)
